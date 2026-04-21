@@ -1,12 +1,6 @@
-const isGithubActions = process.env.GITHUB_ACTIONS === "true";
-const repoName = "maxranktest";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
-  basePath: isGithubActions ? `/${repoName}` : "",
-  assetPrefix: isGithubActions ? `/${repoName}/` : "",
+  outputFileTracingRoot: process.cwd(),
   images: {
     unoptimized: true,
   },

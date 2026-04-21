@@ -1,0 +1,246 @@
+"use client";
+
+import { signOut } from "next-auth/react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { Check, LogOut, CalendarDays, Zap, Crown, ExternalLink } from "lucide-react";
+import type { Session } from "next-auth";
+
+const plans = [
+  {
+    name: "Probe-Session",
+    price: "€24,99",
+    description: "1× 60-min Session, VOD-Review, 7 Tage Support",
+    features: ["1× 60-minütige Session", "VOD-Review (2 Matches)", "Verbesserungsplan", "7 Tage Discord-Support"],
+    cta: "Probe-Session buchen",
+    highlight: false,
+    icon: Zap,
+  },
+  {
+    name: "Grind-Paket",
+    price: "€64,99",
+    originalPrice: "€74,97",
+    description: "3× Sessions, tiefe Analyse, 30 Tage Support",
+    features: ["3× 60-minütige Sessions", "Tiefgehende VOD-Analyse", "Roadmap + Fortschritts-Tracking", "30 Tage Discord-Support"],
+    cta: "Grind-Paket holen",
+    highlight: true,
+    badge: "AM BELIEBTESTEN",
+    icon: Zap,
+  },
+  {
+    name: "Elite-Paket",
+    price: "€109,99",
+    originalPrice: "€149,95",
+    description: "5× Sessions, tägliche Drills, 60 Tage Support",
+    features: ["5× 60-minütige Sessions", "Alles aus Grind-Paket", "Tägliche Trainings-Drills", "60 Tage unlimitierter Support"],
+    cta: "Elite-Paket holen",
+    highlight: false,
+    badge: "BESTES PREIS-LEISTUNG",
+    icon: Crown,
+  },
+];
+
+export default function DashboardClient({ session }: { session: Session }) {
+  const user = session.user;
+  const firstName = user?.name?.split(" ")[0] ?? user?.name ?? "Spieler";
+
+  return (
+    <div className="min-h-screen bg-[#080808] text-white">
+      {/* Background orb */}
+      <div className="fixed -top-60 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#6EE800] opacity-[0.04] blur-[150px] pointer-events-none" />
+      <div className="dot-grid fixed inset-0 pointer-events-none opacity-50" />
+
+      {/* Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#080808]/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image src="/logo.png" alt="MaxRank.GG" width={32} height={32} className="rounded-md" />
+            <span className="font-black text-base tracking-tight">
+              Max<span className="text-[#6EE800]">Rank</span>
+              <span className="text-gray-400">.GG</span>
+            </span>
+          </Link>
+
+          <div className="flex items-center gap-3">
+            {user?.image && (
+              <img
+                src={user.image}
+                alt={user.name ?? "Avatar"}
+                width={32}
+                height={32}
+                className="rounded-full border-2 border-[#6EE800]/40"
+              />
+            )}
+            <span className="text-sm text-gray-300 font-medium hidden sm:block">{user?.name}</span>
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-red-400 transition-colors px-2 py-1.5 rounded-lg hover:bg-white/5"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span className="hidden sm:block">Abmelden</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-20 relative z-10">
+        {/* Welcome Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-5 mb-12"
+        >
+          {user?.image ? (
+            <img
+              src={user.image}
+              alt={user.name ?? "Avatar"}
+              width={72}
+              height={72}
+              className="rounded-full border-2 border-[#6EE800]/50 shadow-[0_0_20px_rgba(110,232,0,0.2)]"
+            />
+          ) : (
+            <div className="w-[72px] h-[72px] rounded-full bg-[#6EE800]/20 border-2 border-[#6EE800]/40 flex items-center justify-center">
+              <span className="text-2xl font-black text-[#6EE800]">
+                {(user?.name ?? "?")[0].toUpperCase()}
+              </span>
+            </div>
+          )}
+          <div>
+            <p className="text-gray-400 text-sm font-medium mb-1">
+              <svg className="w-4 h-4 inline-block mr-1.5 -mt-0.5" viewBox="0 0 127.14 96.36" fill="#5865F2">
+                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+              </svg>
+              Verbunden über Discord
+            </p>
+            <h1
+              className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white leading-none"
+              style={{ fontFamily: "Rajdhani, sans-serif" }}
+            >
+              Willkommen, <span className="text-[#6EE800]">{firstName}</span>
+            </h1>
+          </div>
+        </motion.div>
+
+        {/* Active Subscriptions */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-12"
+        >
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <div className="w-1 h-5 bg-[#6EE800] rounded-full" />
+            Aktive Abonnements
+          </h2>
+          <div className="bg-[#0d0d0d] border border-white/8 rounded-xl p-6 text-center">
+            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3">
+              <CalendarDays className="w-5 h-5 text-gray-500" />
+            </div>
+            <p className="text-gray-400 text-sm">Keine aktiven Pakete</p>
+            <p className="text-gray-600 text-xs mt-1">Wähle unten ein Paket aus, um loszulegen</p>
+          </div>
+        </motion.section>
+
+        {/* Booking Banner */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-12"
+        >
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <div className="w-1 h-5 bg-[#6EE800] rounded-full" />
+            Gratis Beratungstermin
+          </h2>
+          <div className="bg-[#0a1200] border border-[#6EE800]/25 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <p className="text-white font-semibold mb-1">Buche deine kostenlose Erstberatung</p>
+              <p className="text-gray-400 text-sm">
+                Sieh dir freie Termine an und wähle einen Slot — direkt in meinem Kalender.
+              </p>
+            </div>
+            <Link
+              href="/booking"
+              className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 bg-[#6EE800] text-black font-bold text-sm rounded-lg hover:bg-[#A3F000] transition-all hover:shadow-[0_0_20px_rgba(110,232,0,0.4)] whitespace-nowrap"
+            >
+              <CalendarDays className="w-4 h-4" />
+              Termin buchen
+            </Link>
+          </div>
+        </motion.section>
+
+        {/* Pricing Plans */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <div className="w-1 h-5 bg-[#6EE800] rounded-full" />
+            Pakete kaufen
+          </h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            {plans.map((plan, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
+                className={`relative rounded-xl p-6 transition-all duration-300 ${
+                  plan.highlight
+                    ? "bg-[#0f1a00] border-2 border-[#6EE800]/60 shadow-[0_0_40px_rgba(110,232,0,0.15)]"
+                    : "bg-[#111111] border border-white/8 hover:border-white/15"
+                }`}
+              >
+                {plan.badge && (
+                  <span
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap ${
+                      plan.highlight
+                        ? "bg-[#6EE800] text-black"
+                        : "bg-white/10 text-gray-300"
+                    }`}
+                  >
+                    {plan.badge}
+                  </span>
+                )}
+
+                <h3 className="text-white font-bold text-base mb-1">{plan.name}</h3>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-2xl font-black text-white">{plan.price}</span>
+                  {plan.originalPrice && (
+                    <span className="text-sm text-gray-500 line-through">{plan.originalPrice}</span>
+                  )}
+                </div>
+                <p className="text-gray-500 text-xs mb-4">{plan.description}</p>
+
+                <ul className="space-y-2 mb-5">
+                  {plan.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2 text-xs text-gray-300">
+                      <Check className="w-3.5 h-3.5 text-[#6EE800] flex-shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/booking"
+                  className={`flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-bold text-sm transition-all ${
+                    plan.highlight
+                      ? "bg-[#6EE800] text-black hover:bg-[#A3F000] hover:shadow-[0_0_20px_rgba(110,232,0,0.4)]"
+                      : "bg-white/8 text-white hover:bg-white/12 border border-white/10"
+                  }`}
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  {plan.cta}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+      </main>
+    </div>
+  );
+}

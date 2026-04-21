@@ -190,7 +190,7 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href="#"
+                href="/login"
                 className={`block w-full py-3.5 rounded-xl text-center font-bold text-base transition-all duration-200 ${
                   plan.highlight
                     ? "bg-[#6EE800] text-black hover:bg-[#A3F000] hover:shadow-[0_0_30px_rgba(110,232,0,0.4)] active:scale-[0.97]"

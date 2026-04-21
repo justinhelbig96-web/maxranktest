@@ -112,7 +112,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 mb-16"
         >
           <a
-            href="#pricing"
+            href="/login"
             className="group relative px-8 py-4 bg-[#6EE800] text-black font-bold text-lg rounded-xl hover:bg-[#A3F000] transition-all duration-200 hover:shadow-[0_0_40px_rgba(110,232,0,0.45)] active:scale-[0.97] overflow-hidden"
           >
             <span className="relative z-10">Gratis Beratung buchen</span>
