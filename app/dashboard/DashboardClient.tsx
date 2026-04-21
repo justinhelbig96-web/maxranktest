@@ -121,6 +121,15 @@ export default function DashboardClient({ session }: { session: Session }) {
             >
               Willkommen, <span className="text-[#6EE800]">{firstName}</span>
             </h1>
+            {/* Server join badge */}
+            <div className="flex items-center gap-1.5 mt-2">
+              <span className="inline-flex items-center gap-1.5 text-xs bg-[#6EE800]/10 border border-[#6EE800]/25 text-[#6EE800] font-semibold px-2.5 py-1 rounded-full">
+                <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                Server beigetreten · Rolle vergeben
+              </span>
+            </div>
           </div>
         </motion.div>
 
