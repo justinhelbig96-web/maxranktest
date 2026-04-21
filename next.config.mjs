@@ -5,7 +5,6 @@ const repoName = "maxranktest";
 const nextConfig = {
   output: "export",
   trailingSlash: true,
-  outputFileTracingRoot: "C:/Users/insur/Documents/MaxrankGG",
   basePath: isGithubActions ? `/${repoName}` : "",
   assetPrefix: isGithubActions ? `/${repoName}/` : "",
   images: {
