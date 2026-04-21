@@ -29,6 +29,7 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
   }
 
   // Step 2: Assign the member role
+  console.log("[MaxRank] Assigning role", roleId, "to user", userId, "in guild", guildId);
   const roleRes = await fetch(
     `https://discord.com/api/v10/guilds/${guildId}/members/${userId}/roles/${roleId}`,
     {
@@ -38,6 +39,7 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
       },
     }
   );
+  console.log("[MaxRank] Role assign response:", roleRes.status);
   if (!roleRes.ok && roleRes.status !== 204) {
     console.error("[MaxRank] Assign role failed:", roleRes.status, await roleRes.text());
   }
