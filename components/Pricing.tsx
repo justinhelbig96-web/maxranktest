@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Zap } from "lucide-react";
+import Image from "next/image";
 
 const plans = [
   {
@@ -19,6 +20,10 @@ const plans = [
     ],
     cta: "Gold Paket buchen",
     highlight: false,
+    icon: "https://media.valorant-api.com/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1/19/largeicon.png",
+    color: "#F0B429",
+    glow: "rgba(240,180,41,0.35)",
+    border: "rgba(240,180,41,0.5)",
   },
   {
     name: "Diamond Paket",
@@ -37,6 +42,10 @@ const plans = [
     cta: "Diamond Paket holen",
     highlight: true,
     saving: "15% sparen",
+    icon: "https://media.valorant-api.com/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1/22/largeicon.png",
+    color: "#4FC3F7",
+    glow: "rgba(79,195,247,0.35)",
+    border: "rgba(79,195,247,0.6)",
   },
   {
     name: "Radiant Paket",
@@ -55,6 +64,10 @@ const plans = [
     cta: "Radiant Paket holen",
     highlight: false,
     saving: "25% sparen",
+    icon: "https://media.valorant-api.com/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1/27/largeicon.png",
+    color: "#FFFDE7",
+    glow: "rgba(255,230,100,0.35)",
+    border: "rgba(255,220,80,0.55)",
   },
 ];
 
@@ -115,46 +128,68 @@ export default function Pricing() {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               onHoverStart={() => setHovered(i)}
               onHoverEnd={() => setHovered(null)}
+              style={
+                plan.highlight
+                  ? {
+                      borderColor: plan.border,
+                      boxShadow: `0 0 60px ${plan.glow}, 0 0 120px ${plan.glow}`,
+                    }
+                  : hovered === i
+                  ? {
+                      borderColor: plan.border,
+                      boxShadow: `0 0 40px ${plan.glow}`,
+                    }
+                  : {}
+              }
               className={`relative rounded-2xl p-6 transition-all duration-300 ${
                 plan.highlight
-                  ? "bg-[#0f1a00] border-2 border-[#6EE800]/60 shadow-[0_0_60px_rgba(110,232,0,0.18)] scale-[1.02]"
+                  ? "bg-[#0d1018] border-2 scale-[1.02]"
                   : "bg-[#111111] border border-white/8"
-              } ${
-                hovered === i && !plan.highlight
-                  ? "border-[#6EE800]/30 shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
-                  : ""
               }`}
             >
+              {/* Rank icon background glow */}
+              <div
+                className="absolute top-0 right-0 w-32 h-32 rounded-tr-2xl pointer-events-none opacity-10"
+                style={{ background: `radial-gradient(circle at top right, ${plan.color}, transparent 70%)` }}
+              />
+
               {/* Badge */}
               {plan.badge && (
                 <div
-                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black tracking-wider ${
-                    plan.highlight
-                      ? "bg-[#6EE800] text-black"
-                      : "bg-[#6EE800]/20 text-[#6EE800] border border-[#6EE800]/40"
-                  }`}
+                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black tracking-wider text-black"
+                  style={{ backgroundColor: plan.color }}
                 >
                   {plan.badge}
                 </div>
               )}
 
-              {/* Plan name */}
-              <div className="mb-4">
-                <h3
-                  className="text-xl font-black text-white"
-                  style={{ fontFamily: "Rajdhani, sans-serif" }}
-                >
-                  {plan.name}
-                </h3>
-                <p className="text-gray-400 text-sm mt-1">{plan.description}</p>
+              {/* Rank icon + Plan name */}
+              <div className="flex items-center gap-3 mb-4">
+                <Image
+                  src={plan.icon}
+                  alt={plan.name}
+                  width={52}
+                  height={52}
+                  unoptimized
+                  style={{ filter: `drop-shadow(0 0 8px ${plan.glow})` }}
+                />
+                <div>
+                  <h3
+                    className="text-xl font-black"
+                    style={{ fontFamily: "Rajdhani, sans-serif", color: plan.color }}
+                  >
+                    {plan.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-0.5">{plan.description}</p>
+                </div>
               </div>
 
               {/* Price */}
               <div className="mb-5">
                 <div className="flex items-end gap-2">
                   <span
-                    className={`text-5xl font-black ${plan.highlight ? "text-[#6EE800]" : "text-white"}`}
-                    style={{ fontFamily: "Rajdhani, sans-serif" }}
+                    className="text-5xl font-black"
+                    style={{ fontFamily: "Rajdhani, sans-serif", color: plan.color }}
                   >
                     €{plan.price}
                   </span>
@@ -165,23 +200,25 @@ export default function Pricing() {
                   )}
                 </div>
                 {plan.saving && (
-                  <span className="text-xs text-[#6EE800] font-semibold bg-[#6EE800]/10 px-2 py-0.5 rounded-full">
+                  <span
+                    className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                    style={{ color: plan.color, backgroundColor: `${plan.glow}` }}
+                  >
                     {plan.saving}
                   </span>
                 )}
               </div>
 
               {/* Divider */}
-              <div className={`h-px mb-5 ${plan.highlight ? "bg-[#6EE800]/20" : "bg-white/8"}`} />
+              <div className="h-px mb-5" style={{ backgroundColor: `${plan.border}` }} />
 
               {/* Features */}
               <ul className="space-y-3 mb-7">
                 {plan.features.map((feat, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm">
                     <Check
-                      className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                        plan.highlight ? "text-[#6EE800]" : "text-[#6EE800]/70"
-                      }`}
+                      className="w-4 h-4 mt-0.5 flex-shrink-0"
+                      style={{ color: plan.color }}
                     />
                     <span className="text-gray-300">{feat}</span>
                   </li>
@@ -191,11 +228,20 @@ export default function Pricing() {
               {/* CTA */}
               <a
                 href="/login"
-                className={`block w-full py-3.5 rounded-xl text-center font-bold text-base transition-all duration-200 ${
-                  plan.highlight
-                    ? "bg-[#6EE800] text-black hover:bg-[#A3F000] hover:shadow-[0_0_30px_rgba(110,232,0,0.4)] active:scale-[0.97]"
-                    : "border border-white/15 text-white hover:border-[#6EE800]/40 hover:text-[#6EE800] hover:bg-[#6EE800]/5"
-                }`}
+                className="block w-full py-3.5 rounded-xl text-center font-bold text-base transition-all duration-200 active:scale-[0.97]"
+                style={{
+                  backgroundColor: plan.highlight ? plan.color : "transparent",
+                  color: plan.highlight ? "#000" : plan.color,
+                  border: plan.highlight ? "none" : `1px solid ${plan.border}`,
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 30px ${plan.glow}`;
+                  if (!plan.highlight) (e.currentTarget as HTMLAnchorElement).style.backgroundColor = `${plan.glow}`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+                  if (!plan.highlight) (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
+                }}
               >
                 {plan.cta}
               </a>
