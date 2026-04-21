@@ -20,10 +20,11 @@ const plans = [
     ],
     cta: "Gold Paket buchen",
     highlight: false,
-    icon: "https://media.valorant-api.com/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1/19/largeicon.png",
-    color: "#F0B429",
-    glow: "rgba(240,180,41,0.35)",
-    border: "rgba(240,180,41,0.5)",
+    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/14/largeicon.png",
+    color: "#ECCF56",
+    glow: "rgba(236,207,86,0.35)",
+    border: "rgba(236,207,86,0.5)",
+    checkoutUrl: "https://whop.com/maxranktestshop/gold-paket-ab/",
   },
   {
     name: "Diamond Paket",
@@ -42,10 +43,11 @@ const plans = [
     cta: "Diamond Paket holen",
     highlight: true,
     saving: "15% sparen",
-    icon: "https://media.valorant-api.com/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1/22/largeicon.png",
-    color: "#4FC3F7",
-    glow: "rgba(79,195,247,0.35)",
-    border: "rgba(79,195,247,0.6)",
+    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/20/largeicon.png",
+    color: "#B489C4",
+    glow: "rgba(180,137,196,0.35)",
+    border: "rgba(180,137,196,0.6)",
+    checkoutUrl: "https://whop.com/maxranktestshop/diamond-paket/",
   },
   {
     name: "Radiant Paket",
@@ -64,10 +66,11 @@ const plans = [
     cta: "Radiant Paket holen",
     highlight: false,
     saving: "25% sparen",
-    icon: "https://media.valorant-api.com/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1/27/largeicon.png",
-    color: "#FFFDE7",
-    glow: "rgba(255,230,100,0.35)",
-    border: "rgba(255,220,80,0.55)",
+    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/27/largeicon.png",
+    color: "#FFFFAA",
+    glow: "rgba(255,255,170,0.3)",
+    border: "rgba(255,255,170,0.5)",
+    checkoutUrl: "https://whop.com/maxranktestshop/radiant-paket/",
   },
 ];
 
@@ -227,7 +230,9 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href="/login"
+                href={plan.checkoutUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full py-3.5 rounded-xl text-center font-bold text-base transition-all duration-200 active:scale-[0.97]"
                 style={{
                   backgroundColor: plan.highlight ? plan.color : "transparent",

@@ -4,8 +4,9 @@ import { signOut } from "next-auth/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, LogOut, CalendarDays, Zap, Crown, ExternalLink } from "lucide-react";
+import { Check, LogOut, CalendarDays, ExternalLink } from "lucide-react";
 import type { Session } from "next-auth";
+import { useEffect, useState } from "react";
 
 const plans = [
   {
@@ -15,7 +16,11 @@ const plans = [
     features: ["1× 60-minütige Session", "VOD-Review (2 Matches)", "Verbesserungsplan", "7 Tage Discord-Support"],
     cta: "Gold Paket buchen",
     highlight: false,
-    icon: Zap,
+    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/14/largeicon.png",
+    color: "#ECCF56",
+    glow: "rgba(236,207,86,0.3)",
+    border: "rgba(236,207,86,0.4)",
+    checkoutUrl: "https://whop.com/maxranktestshop/gold-paket-ab/",
   },
   {
     name: "Diamond Paket",
@@ -26,7 +31,11 @@ const plans = [
     cta: "Diamond Paket holen",
     highlight: true,
     badge: "AM BELIEBTESTEN",
-    icon: Zap,
+    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/20/largeicon.png",
+    color: "#B489C4",
+    glow: "rgba(180,137,196,0.3)",
+    border: "rgba(180,137,196,0.5)",
+    checkoutUrl: "https://whop.com/maxranktestshop/diamond-paket/",
   },
   {
     name: "Radiant Paket",
@@ -37,13 +46,27 @@ const plans = [
     cta: "Radiant Paket holen",
     highlight: false,
     badge: "BESTES PREIS-LEISTUNG",
-    icon: Crown,
+    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/27/largeicon.png",
+    color: "#FFFFAA",
+    glow: "rgba(255,255,170,0.25)",
+    border: "rgba(255,255,170,0.45)",
+    checkoutUrl: "https://whop.com/maxranktestshop/radiant-paket/",
   },
 ];
 
 export default function DashboardClient({ session }: { session: Session }) {
   const user = session.user;
   const firstName = user?.name?.split(" ")[0] ?? user?.name ?? "Spieler";
+  const [memberships, setMemberships] = useState<{ planName: string; status: string }[]>([]);
+  const [loadingMemberships, setLoadingMemberships] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/whop/memberships?discordId=${user?.id}`)
+      .then((r) => r.json())
+      .then((data) => setMemberships(data.memberships ?? []))
+      .catch(() => setMemberships([]))
+      .finally(() => setLoadingMemberships(false));
+  }, [user?.id]);
 
   return (
     <div className="min-h-screen bg-[#080808] text-white">
@@ -144,12 +167,28 @@ export default function DashboardClient({ session }: { session: Session }) {
             <div className="w-1 h-5 bg-[#6EE800] rounded-full" />
             Aktive Abonnements
           </h2>
-          <div className="bg-[#0d0d0d] border border-white/8 rounded-xl p-6 text-center">
-            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3">
-              <CalendarDays className="w-5 h-5 text-gray-500" />
-            </div>
-            <p className="text-gray-400 text-sm">Keine aktiven Pakete</p>
-            <p className="text-gray-600 text-xs mt-1">Wähle unten ein Paket aus, um loszulegen</p>
+          <div className="bg-[#0d0d0d] border border-white/8 rounded-xl p-6">
+            {loadingMemberships ? (
+              <p className="text-gray-500 text-sm text-center">Lade Abonnements…</p>
+            ) : memberships.length === 0 ? (
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3">
+                  <CalendarDays className="w-5 h-5 text-gray-500" />
+                </div>
+                <p className="text-gray-400 text-sm">Keine aktiven Pakete</p>
+                <p className="text-gray-600 text-xs mt-1">Wähle unten ein Paket aus, um loszulegen</p>
+              </div>
+            ) : (
+              <ul className="space-y-3">
+                {memberships.map((m, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[#6EE800]" />
+                    <span className="text-white font-semibold text-sm">{m.planName}</span>
+                    <span className="ml-auto text-xs text-[#6EE800] bg-[#6EE800]/10 px-2 py-0.5 rounded-full font-semibold capitalize">{m.status}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </motion.section>
 
@@ -198,53 +237,61 @@ export default function DashboardClient({ session }: { session: Session }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
-                className={`relative rounded-xl p-6 transition-all duration-300 ${
+                style={plan.highlight ? { borderColor: plan.border, boxShadow: `0 0 40px ${plan.glow}` } : {}}
+                className={`relative rounded-xl p-5 transition-all duration-300 ${
                   plan.highlight
-                    ? "bg-[#0f1a00] border-2 border-[#6EE800]/60 shadow-[0_0_40px_rgba(110,232,0,0.15)]"
+                    ? "bg-[#0d1018] border-2"
                     : "bg-[#111111] border border-white/8 hover:border-white/15"
                 }`}
               >
                 {plan.badge && (
                   <span
-                    className={`absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap ${
-                      plan.highlight
-                        ? "bg-[#6EE800] text-black"
-                        : "bg-white/10 text-gray-300"
-                    }`}
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap text-black"
+                    style={{ backgroundColor: plan.color }}
                   >
                     {plan.badge}
                   </span>
                 )}
 
-                <h3 className="text-white font-bold text-base mb-1">{plan.name}</h3>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-2xl font-black text-white">{plan.price}</span>
-                  {plan.originalPrice && (
-                    <span className="text-sm text-gray-500 line-through">{plan.originalPrice}</span>
-                  )}
+                <div className="flex items-center gap-3 mb-3">
+                  <Image src={plan.icon} alt={plan.name} width={40} height={40} unoptimized
+                    style={{ filter: `drop-shadow(0 0 6px ${plan.glow})` }}
+                  />
+                  <div>
+                    <h3 className="font-bold text-sm" style={{ color: plan.color }}>{plan.name}</h3>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-xl font-black text-white">{plan.price}</span>
+                      {plan.originalPrice && (
+                        <span className="text-xs text-gray-500 line-through">{plan.originalPrice}</span>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-gray-500 text-xs mb-4">{plan.description}</p>
 
-                <ul className="space-y-2 mb-5">
+                <p className="text-gray-500 text-xs mb-3">{plan.description}</p>
+
+                <ul className="space-y-1.5 mb-4">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2 text-xs text-gray-300">
-                      <Check className="w-3.5 h-3.5 text-[#6EE800] flex-shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: plan.color }} />
                       {f}
                     </li>
                   ))}
                 </ul>
 
-                <Link
-                  href="/booking"
-                  className={`flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-bold text-sm transition-all ${
-                    plan.highlight
-                      ? "bg-[#6EE800] text-black hover:bg-[#A3F000] hover:shadow-[0_0_20px_rgba(110,232,0,0.4)]"
-                      : "bg-white/8 text-white hover:bg-white/12 border border-white/10"
-                  }`}
+                <a
+                  href={plan.checkoutUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-bold text-sm transition-all"
+                  style={plan.highlight
+                    ? { backgroundColor: plan.color, color: "#000" }
+                    : { border: `1px solid ${plan.border}`, color: plan.color }
+                  }
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   {plan.cta}
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>
