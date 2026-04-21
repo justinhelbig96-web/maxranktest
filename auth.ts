@@ -1,10 +1,11 @@
 import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
 
-async function assignDiscordRole(userId: string, accessToken: string) {
+async function assignDiscordRole(userId: string, accessToken: string, username: string) {
   const guildId = process.env.DISCORD_GUILD_ID;
   const roleId = process.env.DISCORD_MEMBER_ROLE_ID;
   const botToken = process.env.DISCORD_BOT_TOKEN;
+  const logChannelId = process.env.DISCORD_LOG_CHANNEL_ID;
 
   if (!guildId || !roleId || !botToken) return;
 
@@ -28,6 +29,32 @@ async function assignDiscordRole(userId: string, accessToken: string) {
       },
     }
   );
+
+  // Step 3: Send log message to #maxrankbot channel
+  if (logChannelId) {
+    const now = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
+    await fetch(`https://discord.com/api/v10/channels/${logChannelId}/messages`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bot ${botToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        embeds: [
+          {
+            color: 0x6ee800,
+            title: "✅ Rolle vergeben",
+            description: `<@${userId}> (**${username}**) hat sich auf **MaxRank.GG** eingeloggt und wurde dem Server hinzugefügt.`,
+            fields: [
+              { name: "User ID", value: userId, inline: true },
+              { name: "Zeitpunkt", value: now, inline: true },
+            ],
+            footer: { text: "MaxRank.GG · Coaching Portal" },
+          },
+        ],
+      }),
+    });
+  }
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -47,12 +74,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: "/login",
   },
   callbacks: {
-    async jwt({ token, account }) {
+    async jwt({ token, account, profile }) {
       // account is only available on first sign-in
       if (account?.provider === "discord" && account.access_token) {
         token.discordId = account.providerAccountId;
+        const username = (profile as { username?: string })?.username ?? token.name ?? "Unbekannt";
         // Assign role every time user logs in
-        await assignDiscordRole(account.providerAccountId, account.access_token);
+        await assignDiscordRole(account.providerAccountId, account.access_token, username);
       }
       return token;
     },
