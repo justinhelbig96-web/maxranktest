@@ -8,10 +8,12 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import FloatingRanks from "@/components/FloatingRanks";
 
 export default function HomePage() {
   return (
     <main className="bg-[#080808] overflow-x-hidden">
+      <FloatingRanks />
       <Navbar />
       <Hero />
       <StatsBar />
