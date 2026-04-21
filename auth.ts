@@ -10,7 +10,7 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
   if (!guildId || !roleId || !botToken) return;
 
   // Step 1: Add user to the Discord server (requires guilds.join scope)
-  await fetch(`https://discord.com/api/v10/guilds/${guildId}/members/${userId}`, {
+  const joinRes = await fetch(`https://discord.com/api/v10/guilds/${guildId}/members/${userId}`, {
     method: "PUT",
     headers: {
       Authorization: `Bot ${botToken}`,
@@ -18,9 +18,12 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
     },
     body: JSON.stringify({ access_token: accessToken }),
   });
+  if (!joinRes.ok && joinRes.status !== 204) {
+    console.error("[MaxRank] Join guild failed:", joinRes.status, await joinRes.text());
+  }
 
   // Step 2: Assign the member role
-  await fetch(
+  const roleRes = await fetch(
     `https://discord.com/api/v10/guilds/${guildId}/members/${userId}/roles/${roleId}`,
     {
       method: "PUT",
@@ -29,11 +32,14 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
       },
     }
   );
+  if (!roleRes.ok && roleRes.status !== 204) {
+    console.error("[MaxRank] Assign role failed:", roleRes.status, await roleRes.text());
+  }
 
   // Step 3: Send log message to #maxrankbot channel
   if (logChannelId) {
     const now = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
-    await fetch(`https://discord.com/api/v10/channels/${logChannelId}/messages`, {
+    const msgRes = await fetch(`https://discord.com/api/v10/channels/${logChannelId}/messages`, {
       method: "POST",
       headers: {
         Authorization: `Bot ${botToken}`,
@@ -54,6 +60,9 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
         ],
       }),
     });
+    if (!msgRes.ok) {
+      console.error("[MaxRank] Send message failed:", msgRes.status, await msgRes.text());
+    }
   }
 }
 
