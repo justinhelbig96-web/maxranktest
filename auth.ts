@@ -9,6 +9,12 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
 
   if (!guildId || !roleId || !botToken) return;
 
+  // Check if user is already in the guild
+  const memberCheckRes = await fetch(`https://discord.com/api/v10/guilds/${guildId}/members/${userId}`, {
+    headers: { Authorization: `Bot ${botToken}` },
+  });
+  const isNewMember = memberCheckRes.status === 404;
+
   // Step 1: Add user to the Discord server (requires guilds.join scope)
   const joinRes = await fetch(`https://discord.com/api/v10/guilds/${guildId}/members/${userId}`, {
     method: "PUT",
@@ -36,7 +42,8 @@ async function assignDiscordRole(userId: string, accessToken: string, username: 
     console.error("[MaxRank] Assign role failed:", roleRes.status, await roleRes.text());
   }
 
-  // Step 3: Send log message to #maxrankbot channel
+  // Step 3: Send log message only for new members
+  if (!isNewMember) return;
   if (logChannelId) {
     const now = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
     const msgRes = await fetch(`https://discord.com/api/v10/channels/${logChannelId}/messages`, {
