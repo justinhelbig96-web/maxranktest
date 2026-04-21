@@ -68,6 +68,11 @@ export default function DashboardClient({ session }: { session: Session }) {
       .finally(() => setLoadingMemberships(false));
   }, [user?.id]);
 
+  // Determine which tier the user currently owns (0=none, 1=Gold, 2=Diamond, 3=Radiant)
+  const planTier: Record<string, number> = { "Gold Paket": 1, "Diamond Paket": 2, "Radiant Paket": 3 };
+  const activePlanNames = memberships.map((m) => m.planName);
+  const highestTier = activePlanNames.reduce((max, name) => Math.max(max, planTier[name] ?? 0), 0);
+
   return (
     <div className="min-h-screen bg-[#080808] text-white">
       {/* Background orb */}
@@ -232,26 +237,47 @@ export default function DashboardClient({ session }: { session: Session }) {
           </h2>
           <div className="grid md:grid-cols-3 gap-5">
             {plans.map((plan, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
-                style={plan.highlight ? { borderColor: plan.border, boxShadow: `0 0 40px ${plan.glow}` } : {}}
-                className={`relative rounded-xl p-5 transition-all duration-300 ${
-                  plan.highlight
-                    ? "bg-[#0d1018] border-2"
-                    : "bg-[#111111] border border-white/8 hover:border-white/15"
-                }`}
-              >
-                {plan.badge && (
-                  <span
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap text-black"
-                    style={{ backgroundColor: plan.color }}
-                  >
-                    {plan.badge}
+              {(() => {
+                const isOwned = activePlanNames.includes(plan.name);
+                const tier = planTier[plan.name] ?? 0;
+                const isLocked = tier < highestTier;
+                const isUpgrade = tier > highestTier;
+                const cardStyle = isOwned
+                  ? { borderColor: plan.border, boxShadow: `0 0 30px ${plan.glow}` }
+                  : plan.highlight && highestTier === 0
+                  ? { borderColor: plan.border, boxShadow: `0 0 40px ${plan.glow}` }
+                  : {};
+                return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
+                  style={cardStyle}
+                  className={`relative rounded-xl p-5 transition-all duration-300 ${
+                    isOwned
+                      ? "bg-[#0a1500] border-2"
+                      : plan.highlight && highestTier === 0
+                      ? "bg-[#0d1018] border-2"
+                      : "bg-[#111111] border border-white/8"
+                  } ${isLocked ? "opacity-35 pointer-events-none select-none" : ""}`}
+                >
+                {/* Active badge OR package badge */}
+                {isOwned ? (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap text-black"
+                    style={{ backgroundColor: plan.color }}>
+                    ✅ AKTIV
                   </span>
-                )}
+                ) : isLocked ? (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap bg-white/10 text-gray-500">
+                    ENTHALTEN
+                  </span>
+                ) : plan.badge ? (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black tracking-wider px-3 py-1 rounded-full whitespace-nowrap text-black"
+                    style={{ backgroundColor: plan.color }}>
+                    {isUpgrade && highestTier > 0 ? "⬆ UPGRADE" : plan.badge}
+                  </span>
+                ) : null}
 
                 <div className="flex items-center gap-3 mb-3">
                   <Image src={plan.icon} alt={plan.name} width={40} height={40} unoptimized
@@ -279,20 +305,29 @@ export default function DashboardClient({ session }: { session: Session }) {
                   ))}
                 </ul>
 
-                <a
-                  href={plan.checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-bold text-sm transition-all"
-                  style={plan.highlight
-                    ? { backgroundColor: plan.color, color: "#000" }
-                    : { border: `1px solid ${plan.border}`, color: plan.color }
-                  }
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  {plan.cta}
-                </a>
-              </motion.div>
+                {isOwned ? (
+                  <div className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-bold text-sm"
+                    style={{ backgroundColor: `${plan.glow}`, color: plan.color, border: `1px solid ${plan.border}` }}>
+                    ✅ Aktives Paket
+                  </div>
+                ) : (
+                  <a
+                    href={plan.checkoutUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-bold text-sm transition-all"
+                    style={plan.highlight && highestTier === 0
+                      ? { backgroundColor: plan.color, color: "#000" }
+                      : { border: `1px solid ${plan.border}`, color: plan.color }
+                    }
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    {isUpgrade && highestTier > 0 ? `Upgrade auf ${plan.name}` : plan.cta}
+                  </a>
+                )}
+                </motion.div>
+                );
+              })()}
             ))}
           </div>
         </motion.section>
