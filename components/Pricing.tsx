@@ -5,7 +5,7 @@ import { Check, Zap, Lock } from "lucide-react";
 
 const tiers = [
   {
-    name: "Rankmaxx Tier 1",
+    name: "Rankmaxx Ignition",
     price: "24,99",
     originalPrice: null,
     period: "/ Monat",
@@ -28,7 +28,7 @@ const tiers = [
     ],
   },
   {
-    name: "Rankmaxx Tier 2",
+    name: "Rankmaxx Ascension",
     price: "39,99",
     originalPrice: "48,99",
     period: "/ Monat",
@@ -64,7 +64,7 @@ export default function Pricing() {
           className="text-center mb-5"
         >
           <span className="text-[#6EE800] text-sm font-bold tracking-widest uppercase">
-            Abo-Modelle
+            Rankmaxx Collective
           </span>
           <h2
             className="text-4xl md:text-5xl font-black uppercase mt-3 text-white"
@@ -175,7 +175,7 @@ export default function Pricing() {
                   border: tier.highlight ? "none" : `1px solid ${tier.border}`,
                 }}
               >
-                {tier.highlight ? "Tier 2 beitreten" : "Tier 1 starten"}
+                {tier.highlight ? "Ascension beitreten" : "Ignition starten"}
               </a>
             </motion.div>
           ))}
