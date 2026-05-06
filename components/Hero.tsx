@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Star, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
 const ranks = ["RADIANT", "IMMORTAL", "ASCENDANT", "DIAMOND"];
 
@@ -47,7 +47,7 @@ export default function Hero() {
         >
           <Zap className="w-3.5 h-3.5 text-[#6EE800] fill-[#6EE800]" />
           <span className="text-sm text-[#6EE800] font-semibold tracking-wide">
-            PROFESSIONELLES VALORANT COACHING
+            ZEIT FÜR DEINEN AUFSTIEG
           </span>
         </motion.div>
 
@@ -98,10 +98,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-lg md:text-xl text-gray-400 max-w-2xl mt-6 mb-10 leading-relaxed"
         >
-          1-zu-1 personalisiertes Coaching, zugeschnitten auf{" "}
-          <span className="text-white font-medium">deinen Spielstil</span>. VOD-Analyse,
-          individuelle Spielpläne und bewährte Strategien, damit du aufhörst zu stagnieren
-          und endlich rankst.
+          Werde Teil der Rankmaxx Ascension Community und starte deinen Aufstieg — mit Radiant Coaches, exklusiven Inhalten und einer Community die wächst.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -112,16 +109,12 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 mb-16"
         >
           <a
-            href="#pricing"
+            href="https://whop.com/maxranktestshop/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative px-8 py-4 bg-[#6EE800] text-black font-bold text-lg rounded-xl hover:bg-[#A3F000] transition-all duration-200 hover:shadow-[0_0_40px_rgba(110,232,0,0.45)] active:scale-[0.97] overflow-hidden"
           >
-            <span className="relative z-10">Paket auswählen</span>
-          </a>
-          <a
-            href="#how-it-works"
-            className="px-8 py-4 border border-white/15 text-white font-semibold text-lg rounded-xl hover:border-[#6EE800]/40 hover:text-[#6EE800] transition-all duration-200 flex items-center gap-2 justify-center"
-          >
-            So funktioniert&apos;s <ChevronRight className="w-5 h-5" />
+            <span className="relative z-10">Mitglied werden</span>
           </a>
         </motion.div>
 

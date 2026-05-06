@@ -118,15 +118,12 @@ export default function FloatingRanks() {
               filter: `drop-shadow(0 0 8px ${p.rank.glow}) drop-shadow(0 0 20px ${p.rank.glow})`,
             }}
           >
-            <div className="flex flex-col items-center gap-1">
-              <DiamondIcon color={p.rank.color} size={p.size} />
-              <span
-                className="text-[9px] font-black tracking-widest"
-                style={{ color: p.rank.color, opacity: 0.85 }}
-              >
-                {p.rank.name}
-              </span>
-            </div>
+            <span
+              className="font-black tracking-widest uppercase"
+              style={{ color: p.rank.color, opacity: 0.7, fontSize: `${p.size * 0.35}px` }}
+            >
+              {p.rank.name}
+            </span>
           </motion.div>
         ))}
       </AnimatePresence>

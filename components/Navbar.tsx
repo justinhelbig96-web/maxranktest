@@ -7,7 +7,6 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "Features", href: "#features" },
-  { label: "So funktionierts", href: "#how-it-works" },
   { label: "Preise", href: "#pricing" },
   { label: "Bewertungen", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
@@ -61,10 +60,12 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#pricing"
+              href="https://whop.com/maxranktestshop/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2 bg-[#6EE800] text-black text-sm font-bold rounded-lg hover:bg-[#A3F000] transition-all hover:shadow-[0_0_20px_rgba(110,232,0,0.4)] active:scale-95"
             >
-              Session buchen
+              Mitglied werden
             </a>
           </div>
 
@@ -101,11 +102,13 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#pricing"
+                href="https://whop.com/maxranktestshop/"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 py-3 px-4 bg-[#6EE800] text-black font-bold rounded-lg text-center hover:bg-[#A3F000] transition-all"
               >
-                Session buchen
+                Mitglied werden
               </a>
             </nav>
           </motion.div>
