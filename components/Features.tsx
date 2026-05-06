@@ -2,32 +2,32 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Target, Video, Map, MessageCircle, Trophy, CalendarDays } from "lucide-react";
+import { Target, Library, Users, MessageCircle, Trophy, ListChecks } from "lucide-react";
 
 const features = [
   {
     icon: Target,
     title: "1-zu-1 Persönliches Coaching",
     description:
-      "Jede Session fokussiert sich zu 100% auf DICH. Wir identifizieren deine spezifischen Schwächen und bauen deine Stärken aus — kein generischer Einheitsbrei.",
+      "Als Rankmaxx Ascension Mitglied hast du ein monatliches Coaching mit Fokus auf dich und dein Gameplay — mit einem unserer Immortal+ Coaches.",
   },
   {
-    icon: Video,
-    title: "Tiefgehende VOD-Analyse",
+    icon: Library,
+    title: "Exklusive Videobibliothek",
     description:
-      "Wir schauen uns deine letzten Match-Replays Frame für Frame an und decken versteckte Fehler in Positionierung, Entscheidungsfindung und Mechanik auf.",
+      "24/7 Zugriff auf unsere ausführlichen Videoreihen mit Radiant Playbooks und Agent Guides für einen schnellen Aufstieg.",
   },
   {
-    icon: Map,
-    title: "Individueller Verbesserungsplan",
+    icon: Users,
+    title: "Group Calls",
     description:
-      "Du bekommst einen strukturierten, persönlichen Plan, der genau festlegt, woran du in welcher Reihenfolge arbeiten sollst — für den schnellsten Rank-Aufstieg.",
+      "Mehrfach wöchentliche Gruppencalls, in denen wir über Progress und wichtige Themen fürs Ranked sprechen — z.B. Matchmaking und Mentalität.",
   },
   {
     icon: MessageCircle,
     title: "Discord-Support",
     description:
-      "Frage zwischen Sessions? Du hast direkten Zugang zu deinem Coach auf Discord für Feedback, Tipps und mentale Unterstützung.",
+      "Du hast direkten Zugang zu deinem Coach auf Discord für Feedback, Tipps, mentale Unterstützung und kannst außerdem jederzeit Clips zum Review einschicken.",
   },
   {
     icon: Trophy,
@@ -36,10 +36,10 @@ const features = [
       "95% unserer Schüler ranken innerhalb der ersten 4 Sessions auf. Wir stehen zu unseren Coaching-Ergebnissen — keine leeren Versprechen.",
   },
   {
-    icon: CalendarDays,
-    title: "Flexible Terminplanung",
+    icon: ListChecks,
+    title: "Vorgefertigte Routinen",
     description:
-      "Sessions sind 7 Tage die Woche verfügbar, auch abends und am Wochenende. Du wählst den Zeitpunkt, der in deinen Alltag passt.",
+      "Radiant Approved Routinen für jeden Spieler — mit optionalen KovaaK's & Aimlabs Abteilungen für gezielte Mechanik-Verbesserung.",
   },
 ];
 

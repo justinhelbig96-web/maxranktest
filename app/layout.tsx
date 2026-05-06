@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "MaxRank.GG — Valorant Coaching",
@@ -17,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="de" className="scroll-smooth">
       <body className="bg-[#080808] text-white antialiased">
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );
