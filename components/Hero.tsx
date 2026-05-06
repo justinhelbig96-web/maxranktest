@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
-
-const ranks = ["RADIANT", "IMMORTAL", "ASCENDANT", "DIAMOND"];
 
 const socialProof = [
   { value: "500+", label: "Trainierte Spieler" },
@@ -14,14 +12,7 @@ const socialProof = [
 ];
 
 export default function Hero() {
-  const [rankIndex, setRankIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setRankIndex((i) => (i + 1) % ranks.length);
-    }, 2400);
-    return () => clearInterval(id);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#080808]">
@@ -60,34 +51,16 @@ export default function Hero() {
             className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-none tracking-tight text-white"
             style={{ fontFamily: "Rajdhani, sans-serif" }}
           >
-            ENTFALTE DEIN
+            ZEIT FÜR DEINEN
           </motion.h1>
-
-          {/* Animated Rank Word */}
-          <div className="h-[clamp(3.5rem,10vw,8rem)] flex items-center justify-center my-1">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={ranks[rankIndex]}
-                initial={{ opacity: 0, y: 24, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -24, scale: 0.96 }}
-                transition={{ duration: 0.38, ease: "easeInOut" }}
-                className="text-[clamp(3.5rem,10vw,8rem)] font-black uppercase leading-none tracking-tight text-[#6EE800] glow-text block"
-                style={{ fontFamily: "Rajdhani, sans-serif" }}
-              >
-                {ranks[rankIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </div>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-none tracking-tight text-white"
+            className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-none tracking-tight text-[#6EE800] glow-text"
             style={{ fontFamily: "Rajdhani, sans-serif" }}
           >
-            POTENZIAL
+            AUFSTIEG
           </motion.h1>
         </div>
 

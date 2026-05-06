@@ -1,81 +1,32 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Zap } from "lucide-react";
 import Image from "next/image";
 
-const plans = [
-  {
-    name: "Gold Paket",
-    price: 24.99,
-    description: "Perfekt zum Reinschnuppern — kein Commitment, nur Wachstum.",
-    badge: null,
-    features: [
-      "1× 60-minütige Coaching-Session",
-      "VOD-Review von 2 aktuellen Matches",
-      "Persönlicher Verbesserungsplan",
-      "7-tage Discord-Nachbetreuung",
-      "Agent-spezifische Tipps",
-    ],
-    cta: "Gold Paket buchen",
-    highlight: false,
-    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/14/largeicon.png",
-    color: "#ECCF56",
-    glow: "rgba(236,207,86,0.35)",
-    border: "rgba(236,207,86,0.5)",
-    checkoutUrl: "https://whop.com/maxranktestshop/gold-paket-ab/",
-  },
-  {
-    name: "Diamond Paket",
-    price: 64.99,
-    originalPrice: 74.97,
-    description: "Die beliebteste Wahl — echte Ergebnisse innerhalb weniger Wochen.",
-    badge: "AM BELIEBTESTEN",
-    features: [
-      "3× 60-minütige Coaching-Sessions",
-      "Tiefgehende VOD-Analyse",
-      "Persönliche Verbesserungs-Roadmap",
-      "30-tage Discord-Support",
-      "Fortschritts-Tracking zwischen Sessions",
-      "Agent-spezifisches Coaching",
-    ],
-    cta: "Diamond Paket holen",
-    highlight: true,
-    saving: "15% sparen",
-    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/20/largeicon.png",
-    color: "#B489C4",
-    glow: "rgba(180,137,196,0.35)",
-    border: "rgba(180,137,196,0.6)",
-    checkoutUrl: "https://whop.com/maxranktestshop/diamond-paket/",
-  },
-  {
-    name: "Radiant Paket",
-    price: 109.99,
-    originalPrice: 149.95,
-    description: "Maximaler Fortschritt für ernsthafte Spieler, die High-Elo anstreben.",
-    badge: "BESTES PREIS-LEISTUNG",
-    features: [
-      "5× 60-minütige Coaching-Sessions",
-      "Alles aus dem Diamond Paket",
-      "Tägliche individuelle Trainings-Drills",
-      "60-tage unlimitierter Discord-Support",
-      "Prioritäts-Buchungen & Umbuchungen",
-      "Gegner-Analyse & Matchup-Vorbereitung",
-    ],
-    cta: "Radiant Paket holen",
-    highlight: false,
-    saving: "25% sparen",
-    icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/27/largeicon.png",
-    color: "#FFFFAA",
-    glow: "rgba(255,255,170,0.3)",
-    border: "rgba(255,255,170,0.5)",
-    checkoutUrl: "https://whop.com/maxranktestshop/radiant-paket/",
-  },
-];
+const membership = {
+  name: "Rankmaxx Ascension",
+  price: "XX,XX",
+  period: "/ Monat",
+  description: "Alles was du brauchst um zu climben — in einer Mitgliedschaft.",
+  badge: "MITGLIEDSCHAFT",
+  features: [
+    "Monatliches 1-zu-1 Coaching mit einem Immortal+ Coach",
+    "Exklusive Videobibliothek: Radiant Playbooks & Agent Guides",
+    "Mehrfach wöchentliche Group Calls",
+    "Discord-Support inkl. Clip-Reviews",
+    "Vorgefertigte Radiant-Routinen (inkl. KovaaK’s & Aimlabs)",
+    "Zugang zur privaten Community",
+  ],
+  icon: "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/27/largeicon.png",
+  color: "#FDDE6C",
+  glow: "rgba(253,222,108,0.35)",
+  border: "rgba(253,222,108,0.5)",
+  checkoutUrl: "https://whop.com/maxranktestshop/",
+};
 
 export default function Pricing() {
-  const [hovered, setHovered] = useState<number | null>(null);
+  const m = membership;
 
   return (
     <section id="pricing" className="py-24 bg-[#080808] relative">
@@ -91,16 +42,16 @@ export default function Pricing() {
           className="text-center mb-5"
         >
           <span className="text-[#6EE800] text-sm font-bold tracking-widest uppercase">
-            Preise
+            Mitgliedschaft
           </span>
           <h2
             className="text-4xl md:text-5xl font-black uppercase mt-3 text-white"
             style={{ fontFamily: "Rajdhani, sans-serif" }}
           >
-            Einfache, <span className="text-[#6EE800]">transparente</span> Preise
+            Ein Preis. <span className="text-[#6EE800]">Alles inklusive.</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-lg mx-auto">
-            Keine versteckten Gebühren. Keine Abo-Fallen. Einmal zahlen, besser spielen.
+            Keine versteckten Gebühren. Kein Schnickschnack. Nur Ergebnisse.
           </p>
         </motion.div>
 
@@ -115,148 +66,100 @@ export default function Pricing() {
           <div className="inline-flex items-center gap-2 bg-[#6EE800]/10 border border-[#6EE800]/20 rounded-full px-4 py-1.5">
             <Zap className="w-4 h-4 text-[#6EE800]" />
             <span className="text-sm text-[#6EE800] font-semibold">
-              100% Zufriedenheit — kostenlose Nachbuchung, wenn du dich nicht verbesserst
+              Jederzeit kündbar — kein Commitment
             </span>
           </div>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-              onHoverStart={() => setHovered(i)}
-              onHoverEnd={() => setHovered(null)}
-              style={
-                plan.highlight
-                  ? {
-                      borderColor: plan.border,
-                      boxShadow: `0 0 60px ${plan.glow}, 0 0 120px ${plan.glow}`,
-                    }
-                  : hovered === i
-                  ? {
-                      borderColor: plan.border,
-                      boxShadow: `0 0 40px ${plan.glow}`,
-                    }
-                  : {}
-              }
-              className={`relative rounded-2xl p-6 transition-all duration-300 ${
-                plan.highlight
-                  ? "bg-[#0d1018] border-2 scale-[1.02]"
-                  : "bg-[#111111] border border-white/8"
-              }`}
+        {/* Single card */}
+        <div className="flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5 }}
+            style={{
+              borderColor: m.border,
+              boxShadow: `0 0 60px ${m.glow}, 0 0 120px ${m.glow}`,
+            }}
+            className="relative rounded-2xl p-8 bg-[#0d1018] border-2 w-full max-w-lg"
+          >
+            {/* Background glow */}
+            <div
+              className="absolute top-0 right-0 w-48 h-48 rounded-tr-2xl pointer-events-none opacity-10"
+              style={{ background: `radial-gradient(circle at top right, ${m.color}, transparent 70%)` }}
+            />
+
+            {/* Badge */}
+            <div
+              className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black tracking-wider text-black"
+              style={{ backgroundColor: m.color }}
             >
-              {/* Rank icon background glow */}
-              <div
-                className="absolute top-0 right-0 w-32 h-32 rounded-tr-2xl pointer-events-none opacity-10"
-                style={{ background: `radial-gradient(circle at top right, ${plan.color}, transparent 70%)` }}
+              {m.badge}
+            </div>
+
+            {/* Icon + Name */}
+            <div className="flex items-center gap-4 mb-6">
+              <Image
+                src={m.icon}
+                alt={m.name}
+                width={64}
+                height={64}
+                unoptimized
+                style={{ filter: `drop-shadow(0 0 10px ${m.glow})` }}
               />
-
-              {/* Badge */}
-              {plan.badge && (
-                <div
-                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black tracking-wider text-black"
-                  style={{ backgroundColor: plan.color }}
+              <div>
+                <h3
+                  className="text-2xl font-black"
+                  style={{ fontFamily: "Rajdhani, sans-serif", color: m.color }}
                 >
-                  {plan.badge}
-                </div>
-              )}
-
-              {/* Rank icon + Plan name */}
-              <div className="flex items-center gap-3 mb-4">
-                <Image
-                  src={plan.icon}
-                  alt={plan.name}
-                  width={52}
-                  height={52}
-                  unoptimized
-                  style={{ filter: `drop-shadow(0 0 8px ${plan.glow})` }}
-                />
-                <div>
-                  <h3
-                    className="text-xl font-black"
-                    style={{ fontFamily: "Rajdhani, sans-serif", color: plan.color }}
-                  >
-                    {plan.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm mt-0.5">{plan.description}</p>
-                </div>
+                  {m.name}
+                </h3>
+                <p className="text-gray-400 text-sm mt-0.5">{m.description}</p>
               </div>
+            </div>
 
-              {/* Price */}
-              <div className="mb-5">
-                <div className="flex items-end gap-2">
-                  <span
-                    className="text-5xl font-black"
-                    style={{ fontFamily: "Rajdhani, sans-serif", color: plan.color }}
-                  >
-                    €{plan.price}
-                  </span>
-                  {plan.originalPrice && (
-                    <span className="text-gray-500 line-through text-sm mb-2">
-                      €{plan.originalPrice}
-                    </span>
-                  )}
-                </div>
-                {plan.saving && (
-                  <span
-                    className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                    style={{ color: plan.color, backgroundColor: `${plan.glow}` }}
-                  >
-                    {plan.saving}
-                  </span>
-                )}
+            {/* Price */}
+            <div className="mb-6">
+              <div className="flex items-end gap-1">
+                <span
+                  className="text-6xl font-black"
+                  style={{ fontFamily: "Rajdhani, sans-serif", color: m.color }}
+                >
+                  €{m.price}
+                </span>
+                <span className="text-gray-400 mb-2 text-lg">{m.period}</span>
               </div>
+            </div>
 
-              {/* Divider */}
-              <div className="h-px mb-5" style={{ backgroundColor: `${plan.border}` }} />
+            {/* Divider */}
+            <div className="h-px mb-6" style={{ backgroundColor: m.border }} />
 
-              {/* Features */}
-              <ul className="space-y-3 mb-7">
-                {plan.features.map((feat, j) => (
-                  <li key={j} className="flex items-start gap-2.5 text-sm">
-                    <Check
-                      className="w-4 h-4 mt-0.5 flex-shrink-0"
-                      style={{ color: plan.color }}
-                    />
-                    <span className="text-gray-300">{feat}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Features */}
+            <ul className="space-y-3 mb-8">
+              {m.features.map((feat, j) => (
+                <li key={j} className="flex items-start gap-2.5 text-sm">
+                  <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: m.color }} />
+                  <span className="text-gray-300">{feat}</span>
+                </li>
+              ))}
+            </ul>
 
-              {/* CTA */}
-              <a
-                href={plan.checkoutUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full py-3.5 rounded-xl text-center font-bold text-base transition-all duration-200 active:scale-[0.97]"
-                style={{
-                  backgroundColor: plan.highlight ? plan.color : "transparent",
-                  color: plan.highlight ? "#000" : plan.color,
-                  border: plan.highlight ? "none" : `1px solid ${plan.border}`,
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 30px ${plan.glow}`;
-                  if (!plan.highlight) (e.currentTarget as HTMLAnchorElement).style.backgroundColor = `${plan.glow}`;
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
-                  if (!plan.highlight) (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
-                }}
-              >
-                {plan.cta}
-              </a>
-            </motion.div>
-          ))}
+            {/* CTA */}
+            <a
+              href={m.checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full py-4 rounded-xl text-center font-black text-lg transition-all duration-200 active:scale-[0.97] hover:brightness-110"
+              style={{ backgroundColor: m.color, color: "#000" }}
+            >
+              Jetzt Mitglied werden
+            </a>
+          </motion.div>
         </div>
 
         {/* Bottom note */}
         <p className="text-center text-gray-500 text-sm mt-8">
-          Alle Sessions per Discord-Screen-Share. Terminbuchung über cal.com.
           Noch Fragen?{" "}
           <a href="#faq" className="text-[#6EE800] hover:underline">
             Zum FAQ
