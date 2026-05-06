@@ -5,101 +5,171 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Felix M.",
-    tag: "@felixplays",
-    rank: "Gold I → Platin II",
-    avatar: "FM",
+    name: "Yoyo",
+    date: "28.04.2026",
+    rank: "Gold 3 → Diamond 2",
+    avatar: "YO",
     stars: 5,
     review:
-      "Der Coach hat komplett verändert, wie ich das Spiel wahrnehme. Meine Positionierung hat sich in nur 2 Sessions drastisch verbessert. Ich konnte nicht glauben, wie viele Free Kills ich liegen gelassen habe.",
+      "Dank @PreciseErik seiner Hilfe und Geduld. Knapp 1 Monat von Gold 3 zu Dia 2. Nur Liebe an ihn 🙏",
   },
   {
-    name: "Lara S.",
-    tag: "@laraval",
-    rank: "Silber II → Diamant III",
-    avatar: "LS",
+    name: "Raphael",
+    date: "26.04.2026",
+    rank: "→ Diamond 1",
+    avatar: "RA",
     stars: 5,
     review:
-      "6 Monate Solo-Queue haben mich nirgendwo hingebracht. 4 Sessions mit MaxRank.GG und ich bin schon in Diamant. Die strukturierte Roadmap hat mir alles klar gemacht.",
+      "Hatte vor genau 2 Wochen ein Coaching mit @koni und habe mich in dieser kurzen Zeit extrem verbessert! Ich kann mich nur nochmal wiederholen wie viel ein Coaching bringt und was für gute Tipps er gegeben hat. Danke nochmal!",
   },
   {
-    name: "James K.",
-    tag: "@jamesgaming",
-    rank: "Bronze III → Platin I",
-    avatar: "JK",
+    name: "Nemonis",
+    date: "19.04.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "NE",
     stars: 5,
     review:
-      "Die VOD-Reviews waren aufklärend. Ich hatte keine Ahnung, wie viele Frühspiel-Fehler ich mache. Die beste Investition, die ich je in mein Gaming getätigt habe.",
+      "Ich hatte am Montag Coaching bei @koni und es hat sich mehr als gelohnt. Fehler wurden in Ruhe erklärt und gleichzeitig eine Liste geschrieben was ich verbessern kann. Auch meinen Main-Agent hat er mir besser erklärt. Nach dem Coaching hab ich direkt gemerkt dass ich schon bisschen besser spiele.",
   },
   {
-    name: "Amir A.",
-    tag: "@amir_val",
-    rank: "Platin II → Immortal I",
-    avatar: "AA",
+    name: "VAL",
+    date: "07.04.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "VA",
     stars: 5,
     review:
-      "Für High-Elo-Spieler ist das Makro-Coaching unglaublich detailliert. Die Gegner-Analyse und Matchup-Vorbereitung ist etwas, das ich bei anderen Coaches noch nie gesehen habe.",
+      "Ich wurde gestern von @PreciseErik gecoacht und wollte nochmal danke sagen. Das Coaching hat mir echt sehr weitergeholfen. Ich hatte immer Probleme meine perfekte Sense zu finden, und jetzt habe ich sie endlich. Wurde früher schon mal von einem Immortal/Radiant-Kollegen gecoacht — aber hier wurde alles deutlich besser, genauer und verständlicher erklärt. Man merkt einfach, was ein richtiger Coach ausmacht. Ich werde definitiv nochmal buchen!",
   },
   {
-    name: "Sophie W.",
-    tag: "@sophiegg",
-    rank: "Eisen I → Bronze III",
-    avatar: "SW",
+    name: "Garil",
+    date: "01.04.2026",
+    rank: "Neuer persönlicher Peak",
+    avatar: "GA",
     stars: 5,
     review:
-      "Sehr geduldiger und motivierender Coach. Hat jeden Punkt Schritt für Schritt erklärt und mich nie für meine Fehler schlecht fühlen lassen. Absolute Empfehlung für Anfänger!",
+      "@koni hat mir viel erklärt und ist auf meine Fragen eingegangen. Es hat sich für mich zu 100% gelohnt, da ich heute schon meinen neuen Peak erreicht habe. Auf jeden Fall sehr empfehlenswert.",
   },
   {
-    name: "Kai L.",
-    tag: "@kailux",
-    rank: "Gold III → Diamant I",
-    avatar: "KL",
+    name: "Yoyo",
+    date: "25.03.2026",
+    rank: "Gold 3 → Platinum 3",
+    avatar: "YO",
     stars: 5,
     review:
-      "2 Jahre in Gold feststeckend. Alles probiert. Nach den Custom-Training-Drills von MaxRank bin ich in unter 5 Wochen von G3 auf Diamant geclimbt.",
+      "Ich wurde vor genau 2 Wochen von @PreciseErik gecoacht und bin damals in Gold 3 gestartet. Jetzt stehe ich kurz vor Diamant. Ich habe gemerkt wie viel besser mein Aim, meine Entscheidungen und mein Game-Sense geworden sind. Viele Fehler, die ich vorher ständig gemacht habe, habe ich jetzt deutlich besser im Griff.",
   },
   {
-    name: "Niklas T.",
-    tag: "@niklasval",
-    rank: "Aszendent I → Immortal III",
-    avatar: "NT",
+    name: "Anonym",
+    date: "24.03.2026",
+    rank: "Match MVP direkt danach",
+    avatar: "AN",
     stars: 5,
     review:
-      "Das Agent-spezifische Coaching für meine Jett war auf einem anderen Level. Kleine Mikro-Anpassungen in meiner Bewegung, die im High-Elo einen massiven Unterschied gemacht haben.",
+      "Wurde heute von @koni gecoacht — er hat mir alles ruhig erklärt, war 100% real und hat nichts verschwiegen. Hat mir meine Fehler direkt gezeigt und konnte sie dann auch in einem Live-Deathmatch umsetzen. Erstes Game nach dem Coaching direkt Match MVP. W Coaching, werde es mir definitiv wieder holen 🙏",
   },
   {
-    name: "Mia R.",
-    tag: "@miaranked",
-    rank: "Silber III → Platin III",
-    avatar: "MR",
+    name: "RyZeey",
+    date: "20.03.2026",
+    rank: "→ Platinum 2",
+    avatar: "RZ",
     stars: 5,
     review:
-      "Ich hatte vorher mehrere Coaches ausprobiert, aber MaxRank.GG ist der einzige, der mir ein echtes System gegeben hat. Der Discord-Support zwischen den Sessions ist ein riesiges Plus.",
+      "In 6 Tagen mit den Tipps von @Eisblokk das geschafft. Ich liebe den Typen nur ❤️ Die TikToks helfen auch krass zusätzlich zum Coaching.",
+  },
+  {
+    name: "Yoyo",
+    date: "09.03.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "YO",
+    stars: 5,
+    review:
+      "Ich wurde von @PreciseErik gecoacht und es hat sich gelohnt. Er hat sich Zeit genommen um sich die VOD anzuschauen und hat mir meine Fehler erklärt. Er war sehr sympathisch und hilfsbereit, hat mir Tipps zum Agent gegeben und mich drauf hingewiesen wie ich mein Crosshair zu placen hab. ES LOHNT SICH — wenn ihr gerade die Möglichkeit habt, bucht ein Coaching. Danke @PreciseErik für den Rankup, bester Mann ❤️",
+  },
+  {
+    name: "Anonym",
+    date: "24.02.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "AN",
+    stars: 5,
+    review:
+      "Ich wurde von @koni gecoacht, das Coaching war wirklich sehr gut. Er hat mir geholfen meine Fehler zu verstehen und zu verbessern, mir Tipps für Matches gegeben und beigebracht wie man was am besten macht — wodurch ich endlich mal wieder eine Runde gewinnen konnte 😊 Ich hatte nicht erwartet, dass das so viel bringt, aber da lag ich falsch. Empfehle es wirklich jedem!",
+  },
+  {
+    name: "gelg",
+    date: "23.02.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "GE",
+    stars: 5,
+    review:
+      "@Eisblokk hat mich gerade gecoacht. Er war sehr ruhig und nett, hat meine Fehler gut analysiert und ich hab das Game gewonnen. Was ich auch sehr gut finde: man kann ihn jederzeit anschreiben für Fragen. W Coaching!",
+  },
+  {
+    name: "ZNG",
+    date: "17.02.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "ZN",
+    stars: 5,
+    review:
+      "@Eisblokk hat mich onstream gecoacht. Er war sehr nett, hat gut analysiert und immer wieder gefragt ob ich es verstehe. All in all war es sehr gut — ich würde es definitiv weiter empfehlen 💕",
+  },
+  {
+    name: "DY",
+    date: "14.02.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "DY",
+    stars: 5,
+    review:
+      "Mein Coach @koni war sehr nett und hat mir sehr geholfen, meine Fehler erklärt und ingame geholfen. Ehrenmann, liebe dich ❤️",
+  },
+  {
+    name: "Anonym",
+    date: "10.02.2026",
+    rank: "Verifizierter Schüler",
+    avatar: "AN",
+    stars: 5,
+    review:
+      "Mein Coaching mit @koni war sehr gut, ich konnte viel von ihm lernen. Man kann sehr gut mit ihm reden, er hat ein riesiges Verständnis für alles. Ich kann das Coaching nur empfehlen — ich wünsche jedem dass sie ihn genau so erleben wie ich! Viel Glück euch allen ❤️",
   },
 ];
 
+function renderReview(text: string) {
+  const parts = text.split(/(@PreciseErik|@koni|@Eisblokk)/g);
+  return parts.map((part, i) =>
+    /^(@PreciseErik|@koni|@Eisblokk)$/.test(part) ? (
+      <span key={i} className="text-[#6EE800] font-semibold">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+}
+
 function ReviewCard({ t }: { t: (typeof testimonials)[0] }) {
   return (
-    <div className="flex-none w-80 bg-[#111111] border border-white/8 rounded-2xl p-5 mx-3">
-      {/* Stars */}
-      <div className="flex gap-0.5 mb-3">
-        {Array.from({ length: t.stars }).map((_, i) => (
-          <Star key={i} className="w-4 h-4 text-[#6EE800] fill-[#6EE800]" />
-        ))}
-      </div>
-
-      {/* Review text */}
-      <p className="text-gray-300 text-sm leading-relaxed mb-4">&ldquo;{t.review}&rdquo;</p>
-
-      {/* Author */}
-      <div className="flex items-center gap-3 pt-3 border-t border-white/8">
-        <div className="w-9 h-9 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-xs font-black">
+    <div className="flex-none w-80 bg-[#1e1f22] border border-white/8 rounded-2xl p-5 mx-3">
+      {/* Header: avatar + name + date */}
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-9 h-9 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-xs font-black flex-shrink-0">
           {t.avatar}
         </div>
         <div>
-          <div className="text-white text-sm font-semibold">{t.name}</div>
-          <div className="text-[#6EE800] text-xs font-medium">{t.rank}</div>
+          <div className="text-white text-sm font-semibold leading-none">{t.name}</div>
+          <div className="text-gray-500 text-xs mt-0.5">{t.date}</div>
         </div>
+      </div>
+
+      {/* Review text */}
+      <p className="text-gray-300 text-sm leading-relaxed mb-4">{renderReview(t.review)}</p>
+
+      {/* Rank badge */}
+      <div className="flex items-center gap-1.5 pt-3 border-t border-white/8">
+        <div className="flex gap-0.5">
+          {Array.from({ length: t.stars }).map((_, i) => (
+            <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
+          ))}
+        </div>
+        <span className="text-[#6EE800] text-xs font-medium ml-1">{t.rank}</span>
       </div>
     </div>
   );
