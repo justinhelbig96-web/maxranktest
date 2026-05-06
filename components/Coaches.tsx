@@ -5,8 +5,7 @@ import Image from "next/image";
 
 const coaches = [
   {
-    name: "Eisblokk",
-    rank: "Radiant",
+    rank: "Immortal+",
     description: "",
     color: "#FDDE6C",
     image: "/eisblokk.jpg",
@@ -14,8 +13,7 @@ const coaches = [
     tiktok: "https://www.tiktok.com/@eisblokk",
   },
   {
-    name: "Saylemas",
-    rank: "Immortal+",
+    rank: "Radiant",
     description: "",
     color: "#AC3733",
     image: null,
