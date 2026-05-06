@@ -37,10 +37,9 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="MaxRank.GG Logo" width={36} height={36} className="rounded-md" />
+            <Image src="/logo.png" alt="RANKMAXX Logo" width={36} height={36} className="rounded-md" />
             <span className="font-black text-lg tracking-tight">
-              Max<span className="text-[#6EE800]">Rank</span>
-              <span className="text-gray-400">.GG</span>
+              RANK<span className="text-[#6EE800]">MAXX</span>
             </span>
           </a>
 

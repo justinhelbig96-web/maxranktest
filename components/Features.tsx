@@ -69,7 +69,7 @@ export default function Features() {
           className="text-center mb-16"
         >
           <span className="text-[#6EE800] text-sm font-bold tracking-widest uppercase">
-            Warum MaxRank.GG
+            Warum RANKMAXX
           </span>
           <h2
             className="text-4xl md:text-5xl font-black uppercase mt-3 text-white"

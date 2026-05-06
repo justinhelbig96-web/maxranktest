@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MaxRank.GG — Valorant Coaching",
+  title: "RANKMAXX — Valorant Coaching",
   description:
-    "1-zu-1 personalisiertes Valorant Coaching. Erreiche Radiant mit professioneller Begleitung, VOD-Analyse und bewährten Strategien.",
-  keywords: ["Valorant Coaching", "Rank up", "Valorant Coach", "1zu1 Coaching", "MaxRank"],
+    "Werde Teil des Rankmaxx Collective. Exklusive Videobibliothek, Group Calls, 1-zu-1 Coaching und mehr — für deinen Aufstieg in Valorant.",
+  keywords: ["Valorant Coaching", "Rankmaxx", "Rankmaxx Collective", "Valorant Community", "Rank up"],
 };
 
 export default function RootLayout({

@@ -38,10 +38,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <a href="#" className="flex items-center gap-2.5 mb-4">
-            <Image src="/logo.png" alt="MaxRank.GG Logo" width={36} height={36} className="rounded-md" />
+            <Image src="/logo.png" alt="RANKMAXX Logo" width={36} height={36} className="rounded-md" />
             <span className="font-black text-lg tracking-tight">
-              Max<span className="text-[#6EE800]">Rank</span>
-              <span className="text-gray-400">.GG</span>
+              RANK<span className="text-[#6EE800]">MAXX</span>
             </span>
           </a>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
@@ -91,7 +90,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} MaxRank.GG — Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} RANKMAXX — Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-5 text-sm">
             <a href="#" className="text-gray-600 hover:text-gray-400 transition-colors">
