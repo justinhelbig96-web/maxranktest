@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
 import Features from "@/components/Features";
+import Coaches from "@/components/Coaches";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       <StatsBar />
       <Features />
+      <Coaches />
       <Pricing />
       <Testimonials />
       <FAQ />
