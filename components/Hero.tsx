@@ -4,13 +4,6 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 
-const socialProof = [
-  { value: "500+", label: "Trainierte Spieler" },
-  { value: "95%", label: "Rank-Up-Quote" },
-  { value: "4.9★", label: "Ø Bewertung" },
-  { value: "Radiant", label: "Coach-Rang" },
-];
-
 export default function Hero() {
   useEffect(() => {}, []);
 
@@ -91,24 +84,6 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Social Proof strip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.55 }}
-          className="w-full max-w-2xl"
-        >
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 border-t border-white/8 pt-8">
-            {socialProof.map((s, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <span className="text-xl md:text-2xl font-black text-white">
-                  {s.value}
-                </span>
-                <span className="text-xs text-gray-500 mt-0.5 font-medium">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
       {/* Bottom gradient fade */}
