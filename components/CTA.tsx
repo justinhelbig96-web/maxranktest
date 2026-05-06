@@ -17,13 +17,6 @@ export default function CTA() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.65 }}
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#6EE800]/10 border border-[#6EE800]/25 rounded-full px-4 py-1.5 mb-6">
-            <span className="text-sm text-[#6EE800] font-semibold">
-              🚀 Erste Beratung kostenlos
-            </span>
-          </div>
-
           <h2
             className="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-none text-white mb-6"
             style={{ fontFamily: "Rajdhani, sans-serif" }}
