@@ -25,7 +25,7 @@ const testimonials = [
   {
     name: "Nemonis",
     date: "19.04.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "NE",
     stars: 5,
     review:
@@ -34,7 +34,7 @@ const testimonials = [
   {
     name: "VAL",
     date: "07.04.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "VA",
     stars: 5,
     review:
@@ -79,7 +79,7 @@ const testimonials = [
   {
     name: "Yoyo",
     date: "09.03.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "YO",
     stars: 5,
     review:
@@ -88,7 +88,7 @@ const testimonials = [
   {
     name: "Anonym",
     date: "24.02.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "AN",
     stars: 5,
     review:
@@ -97,7 +97,7 @@ const testimonials = [
   {
     name: "gelg",
     date: "23.02.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "GE",
     stars: 5,
     review:
@@ -106,7 +106,7 @@ const testimonials = [
   {
     name: "ZNG",
     date: "17.02.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "ZN",
     stars: 5,
     review:
@@ -115,7 +115,7 @@ const testimonials = [
   {
     name: "DY",
     date: "14.02.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "DY",
     stars: 5,
     review:
@@ -124,11 +124,56 @@ const testimonials = [
   {
     name: "Anonym",
     date: "10.02.2026",
-    rank: "Verifizierter Schüler",
+    rank: "",
     avatar: "AN",
     stars: 5,
     review:
       "Mein Coaching mit @koni war sehr gut, ich konnte viel von ihm lernen. Man kann sehr gut mit ihm reden, er hat ein riesiges Verständnis für alles. Ich kann das Coaching nur empfehlen — ich wünsche jedem dass sie ihn genau so erleben wie ich! Viel Glück euch allen ❤️",
+  },
+  {
+    name: "Anonym",
+    date: "31.01.2026",
+    rank: "Bronze 1 → Silver 2",
+    avatar: "AN",
+    stars: 5,
+    review:
+      "Wurde von @Eisblokk gecoacht, bin innerhalb 2 Wochen von Bronze 1 auf Silver 2 gekommen. Lohnt sich aufjedenfall, bester Mann.",
+  },
+  {
+    name: "Anonym",
+    date: "29.01.2026",
+    rank: "",
+    avatar: "AN",
+    stars: 5,
+    review:
+      "Ich wurde von @Eisblokk gecoacht und es war wirklich mega. Sehr netter und ehrlicher Typ, hat danach auch noch Fragen in DM beantwortet. Das Coaching war sehr gut strukturiert und er ist auf deine persönlichen Probleme eingegangen — hat eine Liste mit den wichtigsten Sachen mitgegeben.",
+  },
+  {
+    name: "Julius",
+    date: "25.01.2026",
+    rank: "",
+    avatar: "JU",
+    stars: 5,
+    review:
+      "Hatte ein Coaching bei @Eisblokk, er hat schnell herausgefunden wo meine Schwächen sind und wie ich sie verbessern kann. Er hat mir viele hilfreiche Tipps mitgegeben und schon im ersten Game nach dem Coaching merkt man einen Unterschied. Kann es nur weiter empfehlen!",
+  },
+  {
+    name: "Anonym",
+    date: "24.01.2026",
+    rank: "",
+    avatar: "AN",
+    stars: 5,
+    review:
+      "Ich hatte gestern Coaching bei @koni — er war mega cool und nett, ist mega auf mich eingegangen und hat mir wirklich wichtige und gute Tipps gegeben. Man kann super mit ihm reden und er hat echt Spaß daran, alles so ausführlich zu erklären. Ganz viel Liebe geht raus ❤️🔥",
+  },
+  {
+    name: "zngstu",
+    date: "23.01.2026",
+    rank: "",
+    avatar: "ZS",
+    stars: 5,
+    review:
+      "Coaching bei @Eisblokk: Super entspannt und nett, zwischenmenschlich auch super. Er konnte genau sehen wo und welche Fehler gemacht wurden und was man dagegen tun kann. Hoffe die nächste Session wird genauso gut! 🙌",
   },
 ];
 
@@ -169,7 +214,7 @@ function ReviewCard({ t }: { t: (typeof testimonials)[0] }) {
             <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
           ))}
         </div>
-        <span className="text-[#6EE800] text-xs font-medium ml-1">{t.rank}</span>
+        {t.rank && <span className="text-[#6EE800] text-xs font-medium ml-1">{t.rank}</span>}
       </div>
     </div>
   );
