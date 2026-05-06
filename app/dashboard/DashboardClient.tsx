@@ -236,8 +236,8 @@ export default function DashboardClient({ session }: { session: Session }) {
             Pakete kaufen
           </h2>
           <div className="grid md:grid-cols-3 gap-5">
-            {plans.map((plan, i) => (
-              {(() => {
+            {plans.map((plan, i) => {
+              return (() => {
                 const isOwned = activePlanNames.includes(plan.name);
                 const tier = planTier[plan.name] ?? 0;
                 const isLocked = tier < highestTier;
@@ -327,8 +327,8 @@ export default function DashboardClient({ session }: { session: Session }) {
                 )}
                 </motion.div>
                 );
-              })()}
-            ))}
+              })();
+            })}
           </div>
         </motion.section>
       </main>
