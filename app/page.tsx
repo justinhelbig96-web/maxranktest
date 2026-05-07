@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import StatsBar from "@/components/StatsBar";
 import Features from "@/components/Features";
 import Coaches from "@/components/Coaches";
 import Pricing from "@/components/Pricing";
@@ -14,7 +13,6 @@ export default function HomePage() {
     <main className="bg-[#080808] overflow-x-hidden">
       <Navbar />
       <Hero />
-      <StatsBar />
       <Features />
       <Coaches />
       <Pricing />
