@@ -111,7 +111,7 @@ export default function Coaches() {
                       fontFamily: "Rajdhani, sans-serif",
                     }}
                   >
-                    {coach.name.charAt(0)}
+                    {coach.name?.charAt(0)}
                   </div>
                 )}
               </div>
