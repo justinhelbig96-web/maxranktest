@@ -13,6 +13,7 @@ const coaches = [
     tiktok: "https://www.tiktok.com/@eisblokk",
   },
   {
+    name: "Saylemas",
     rank: "Radiant",
     description: "",
     color: "#AC3733",
@@ -97,7 +98,7 @@ export default function Coaches() {
                 {coach.image ? (
                   <Image
                     src={coach.image}
-                    alt={coach.name}
+                    alt={coach.name ?? ""}
                     fill
                     className="object-cover object-top"
                   />
