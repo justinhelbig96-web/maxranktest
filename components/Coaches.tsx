@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const coaches = [
   {
+    name: "Eisblokk",
     rank: "Immortal+",
     description: "",
     color: "#FDDE6C",
@@ -121,7 +122,11 @@ export default function Coaches() {
                 {/* Rank badge */}
                 <span
                   className="text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full mb-3 inline-block"
-                  style={{ color: coach.color, backgroundColor: `${coach.color}18`, border: `1px solid ${coach.color}40` }}
+                  style={{
+                    color: coach.rank === "Radiant" ? "#FDDE6C" : "#FF4655",
+                    backgroundColor: coach.rank === "Radiant" ? "#FDDE6C18" : "#FF465518",
+                    border: `1px solid ${coach.rank === "Radiant" ? "#FDDE6C40" : "#FF465540"}`,
+                  }}
                 >
                   {coach.rank}
                 </span>
