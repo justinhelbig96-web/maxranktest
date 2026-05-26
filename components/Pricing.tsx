@@ -15,7 +15,7 @@ const tiers = [
     color: "#6EE800",
     glow: "rgba(110,232,0,0.25)",
     border: "rgba(110,232,0,0.4)",
-    checkoutUrl: "https://whop.com/maxranktestshop/",
+    checkoutUrl: "https://whop.com/joined/rankmaxx-deb8/products/rankmaxx-ignition/",
     features: [
       "Zugang zur Videobibliothek (Smurf Commentaries & Playbooks)",
       "Premier Team Betreuung",
@@ -29,8 +29,8 @@ const tiers = [
   },
   {
     name: "Rankmaxx Ascension",
-    price: "39,99",
-    originalPrice: "48,99",
+    price: "49,99",
+    originalPrice: null,
     period: "/ Monat",
     description: "Limitiert — persönliche Betreuung auf höchstem Niveau.",
     badge: "LIMITIERT",
@@ -38,7 +38,7 @@ const tiers = [
     color: "#FDDE6C",
     glow: "rgba(253,222,108,0.3)",
     border: "rgba(253,222,108,0.5)",
-    checkoutUrl: "https://whop.com/maxranktestshop/",
+    checkoutUrl: "https://whop.com/joined/rankmaxx-deb8/products/rankmaxx-ascension/",
     features: [
       "Alles aus Tier 1 inklusive",
       "1× Individuelles Coaching/Monat (Zeitgestaltung frei wählbar)",
