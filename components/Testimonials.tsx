@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, TrendingUp, ChevronRight, ChevronLeft } from "lucide-react";
+import { Star, TrendingUp, ChevronRight, ChevronLeft, X, ZoomIn } from "lucide-react";
 import Image from "next/image";
 
 const slides = [
@@ -38,6 +38,7 @@ const steps = [
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
   const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
   const next = () => setCurrent((c) => (c + 1) % slides.length);
 
@@ -163,7 +164,7 @@ export default function Testimonials() {
         >
           <div className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden">
             {/* Screenshot area */}
-            <div className="relative h-[340px] sm:h-[420px] overflow-hidden">
+            <div className="relative h-[420px] sm:h-[560px] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current}
@@ -173,15 +174,26 @@ export default function Testimonials() {
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="absolute inset-0"
                 >
-                  <Image
-                    src={slides[current].src}
-                    alt={slides[current].alt}
-                    fill
-                    className="object-cover object-top"
-                    sizes="100vw"
-                  />
+                  <button
+                    onClick={() => setLightbox(slides[current].src)}
+                    className="absolute inset-0 w-full h-full group cursor-zoom-in"
+                  >
+                    <Image
+                      src={slides[current].src}
+                      alt={slides[current].alt}
+                      fill
+                      className="object-cover object-top"
+                      sizes="100vw"
+                    />
+                    {/* Zoom hint */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 rounded-full p-2">
+                        <ZoomIn className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+                  </button>
                   {/* Rank badge */}
-                  <div className="absolute top-4 right-4 bg-black/75 backdrop-blur-sm border border-[#6EE800]/40 rounded-full px-3 py-1.5">
+                  <div className="absolute top-4 right-4 bg-black/75 backdrop-blur-sm border border-[#6EE800]/40 rounded-full px-3 py-1.5 pointer-events-none">
                     <span className="text-[#6EE800] text-xs font-bold">{slides[current].rank}</span>
                   </div>
                 </motion.div>
@@ -254,6 +266,43 @@ export default function Testimonials() {
             </div>
           </div>
         </motion.div>
+
+        {/* ── Lightbox ── */}
+        <AnimatePresence>
+          {lightbox && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+              onClick={() => setLightbox(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.92, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.92, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="relative max-w-4xl w-full max-h-[90vh] rounded-2xl overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={lightbox}
+                  alt="Review Screenshot"
+                  width={1200}
+                  height={900}
+                  className="w-full h-auto object-contain"
+                />
+                <button
+                  onClick={() => setLightbox(null)}
+                  className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/70 border border-white/20 flex items-center justify-center hover:bg-black transition-colors"
+                >
+                  <X className="w-4 h-4 text-white" />
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* ── Average rating ── */}
         <motion.div
