@@ -1,10 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Star, TrendingUp, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, TrendingUp, ChevronRight, ChevronLeft } from "lucide-react";
 import Image from "next/image";
 
+const slides = [
+  {
+    src: "/reviews/1.png",
+    alt: "Yoyo Gold 3 → Diamond 2",
+    rank: "Gold 3 → Diamond 2",
+    avatar: "YO",
+    name: "Yoyo",
+    date: "28.04.2026",
+    coach: "@PreciseErik",
+    quote:
+      "Dank @PreciseErik seiner Hilfe und Geduld. Knapp 1 Monat von Gold 3 zu Dia 2. Nur Liebe an ihn 🙏",
+  },
+  {
+    src: "/reviews/2.png",
+    alt: "Raphael → Diamond 1",
+    rank: "→ Diamond 1",
+    avatar: "RA",
+    name: "Raphael",
+    date: "26.04.2026",
+    coach: "@koni",
+    quote:
+      "Hatte vor genau 2 Wochen ein Coaching mit @koni und habe mich extrem verbessert! Kann es nur nochmal wiederholen wie viel ein Coaching bringt. Danke nochmal!",
+  },
+];
+
+const steps = [
+  { src: "/reviews/5.png", alt: "RyZeey Gold 3", date: "14.03.2026", rank: "Gold 3" },
+  { src: "/reviews/4.png", alt: "RyZeey Platinum 2", date: "20.03.2026", rank: "Platinum 2" },
+  { src: "/reviews/3.png", alt: "RyZeey Ascendant 1", date: "22.04.2026", rank: "Ascendant 1 🎉" },
+];
+
 export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+  const next = () => setCurrent((c) => (c + 1) % slides.length);
+
   return (
     <section id="testimonials" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(110,232,0,0.03)_0%,transparent_60%)] pointer-events-none" />
@@ -41,7 +77,6 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          {/* Label */}
           <div className="flex items-center gap-2 mb-5">
             <TrendingUp className="w-4 h-4 text-[#6EE800]" />
             <span className="text-[#6EE800] text-xs font-bold tracking-widest uppercase">
@@ -51,7 +86,7 @@ export default function Testimonials() {
 
           <div className="bg-gradient-to-br from-[#111316] to-[#0d0f12] border border-[#6EE800]/25 rounded-3xl p-6 lg:p-8">
             {/* Card header */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-sm font-black">
                   RZ
@@ -70,76 +105,37 @@ export default function Testimonials() {
 
             {/* 3-step screenshot progression */}
             <div className="flex flex-col md:flex-row items-stretch gap-3">
-              {/* Step 1 */}
-              <div className="flex-1 flex flex-col gap-2">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] font-bold text-[10px] flex-shrink-0">
-                    1
-                  </span>
-                  <span className="text-gray-500 text-xs">14.03.2026 · Gold 3</span>
-                </div>
-                <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
-                  <Image
-                    src="/reviews/5.png"
-                    alt="RyZeey Gold 3 nach Eisblokk Coaching"
-                    width={520}
-                    height={420}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <div className="flex items-center justify-center py-1 md:py-0 md:px-1">
-                <ChevronRight className="w-5 h-5 text-[#6EE800] rotate-90 md:rotate-0 flex-shrink-0" />
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex-1 flex flex-col gap-2">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] font-bold text-[10px] flex-shrink-0">
-                    2
-                  </span>
-                  <span className="text-gray-500 text-xs">20.03.2026 · Platinum 2</span>
-                </div>
-                <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
-                  <Image
-                    src="/reviews/4.png"
-                    alt="RyZeey Platinum 2 in 6 Tagen"
-                    width={520}
-                    height={420}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <div className="flex items-center justify-center py-1 md:py-0 md:px-1">
-                <ChevronRight className="w-5 h-5 text-[#6EE800] rotate-90 md:rotate-0 flex-shrink-0" />
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex-1 flex flex-col gap-2">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] font-bold text-[10px] flex-shrink-0">
-                    3
-                  </span>
-                  <span className="text-gray-500 text-xs">22.04.2026 · Ascendant 1 🎉</span>
-                </div>
-                <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
-                  <Image
-                    src="/reviews/3.png"
-                    alt="RyZeey Ascendant 1"
-                    width={520}
-                    height={420}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
+              {steps.map((step, i) => (
+                <>
+                  <div key={step.src} className="flex-1 relative rounded-2xl overflow-hidden border border-white/8 min-h-[220px]">
+                    <Image
+                      src={step.src}
+                      alt={step.alt}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    {/* Step badge */}
+                    <div className="absolute top-3 left-3 w-6 h-6 rounded-full bg-[#6EE800] flex items-center justify-center text-black font-black text-xs shadow-lg">
+                      {i + 1}
+                    </div>
+                    {/* Bottom caption */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-4 pt-8 pb-3">
+                      <span className="text-white font-bold text-sm block leading-none">{step.rank}</span>
+                      <span className="text-gray-400 text-xs">{step.date}</span>
+                    </div>
+                  </div>
+                  {i < steps.length - 1 && (
+                    <div key={`arrow-${i}`} className="flex items-center justify-center py-1 md:py-0 md:px-1 flex-shrink-0">
+                      <ChevronRight className="w-5 h-5 text-[#6EE800]/50 rotate-90 md:rotate-0" />
+                    </div>
+                  )}
+                </>
+              ))}
             </div>
 
             {/* Quote bar */}
-            <div className="mt-6 bg-[#080808] rounded-2xl px-5 py-4 border border-white/5 flex items-start gap-3">
+            <div className="mt-5 bg-[#080808] rounded-2xl px-5 py-4 border border-white/5 flex items-start gap-3">
               <span className="text-[#6EE800] text-2xl leading-none mt-0.5 select-none">"</span>
               <div>
                 <p className="text-gray-300 text-sm leading-relaxed">
@@ -157,95 +153,107 @@ export default function Testimonials() {
           </div>
         </motion.div>
 
-        {/* ── Other Reviews: Yoyo + Raphael ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-          {/* Yoyo */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden"
-          >
-            <div className="relative">
-              <Image
-                src="/reviews/1.png"
-                alt="Yoyo Gold 3 → Diamond 2"
-                width={700}
-                height={520}
-                className="w-full object-cover object-top"
-              />
-              <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm border border-[#6EE800]/30 rounded-full px-3 py-1">
-                <span className="text-[#6EE800] text-xs font-bold">Gold 3 → Diamond 2</span>
-              </div>
-            </div>
-            <div className="p-5">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-[10px] font-black">
-                    YO
+        {/* ── Slideshow: Yoyo + Raphael ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-14"
+        >
+          <div className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden">
+            {/* Screenshot area */}
+            <div className="relative h-[340px] sm:h-[420px] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={slides[current].src}
+                    alt={slides[current].alt}
+                    fill
+                    className="object-cover object-top"
+                    sizes="100vw"
+                  />
+                  {/* Rank badge */}
+                  <div className="absolute top-4 right-4 bg-black/75 backdrop-blur-sm border border-[#6EE800]/40 rounded-full px-3 py-1.5">
+                    <span className="text-[#6EE800] text-xs font-bold">{slides[current].rank}</span>
                   </div>
-                  <span className="text-white font-bold text-sm">Yoyo</span>
-                  <span className="text-gray-500 text-xs">28.04.2026</span>
-                </div>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Dank{" "}
-                <span className="text-[#6EE800] font-medium">@PreciseErik</span>{" "}
-                seiner Hilfe und Geduld. Knapp 1 Monat von Gold 3 zu Dia 2. Nur Liebe an ihn 🙏
-              </p>
-            </div>
-          </motion.div>
+                </motion.div>
+              </AnimatePresence>
 
-          {/* Raphael */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden"
-          >
-            <div className="relative">
-              <Image
-                src="/reviews/2.png"
-                alt="Raphael Diamond 1"
-                width={700}
-                height={520}
-                className="w-full object-cover object-top"
-              />
-              <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm border border-[#6EE800]/30 rounded-full px-3 py-1">
-                <span className="text-[#6EE800] text-xs font-bold">→ Diamond 1</span>
-              </div>
+              {/* Nav arrows */}
+              <button
+                onClick={prev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:border-[#6EE800]/40 transition-colors z-10"
+              >
+                <ChevronLeft className="w-4 h-4 text-white" />
+              </button>
+              <button
+                onClick={next}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:border-[#6EE800]/40 transition-colors z-10"
+              >
+                <ChevronRight className="w-4 h-4 text-white" />
+              </button>
+
+              {/* Bottom fade */}
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#111316] to-transparent pointer-events-none" />
             </div>
-            <div className="p-5">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-[10px] font-black">
-                    RA
+
+            {/* Text area */}
+            <div className="px-6 pb-6 pt-2">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-[10px] font-black">
+                        {slides[current].avatar}
+                      </div>
+                      <span className="text-white font-bold text-sm">{slides[current].name}</span>
+                      <span className="text-gray-500 text-xs">{slides[current].date}</span>
+                    </div>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
+                      ))}
+                    </div>
                   </div>
-                  <span className="text-white font-bold text-sm">Raphael</span>
-                  <span className="text-gray-500 text-xs">26.04.2026</span>
-                </div>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
-                  ))}
-                </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {slides[current].quote.split(/(@PreciseErik|@koni|@Eisblokk)/g).map((part, i) =>
+                      /^(@PreciseErik|@koni|@Eisblokk)$/.test(part) ? (
+                        <span key={i} className="text-[#6EE800] font-medium">{part}</span>
+                      ) : part
+                    )}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Dots */}
+              <div className="flex justify-center gap-2 mt-5">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === current ? "w-6 bg-[#6EE800]" : "w-1.5 bg-white/20"
+                    }`}
+                  />
+                ))}
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Hatte vor genau 2 Wochen ein Coaching mit{" "}
-                <span className="text-[#6EE800] font-medium">@koni</span>{" "}
-                und habe mich extrem verbessert! Kann es nur nochmal wiederholen wie viel ein
-                Coaching bringt. Danke nochmal!
-              </p>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
         {/* ── Average rating ── */}
         <motion.div
