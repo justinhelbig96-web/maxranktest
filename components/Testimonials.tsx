@@ -80,7 +80,7 @@ export default function Testimonials() {
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
                   <Image
-                    src="/5.png"
+                    src="/reviews/5.png"
                     alt="RyZeey Gold 3 nach Eisblokk Coaching"
                     width={520}
                     height={420}
@@ -104,7 +104,7 @@ export default function Testimonials() {
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
                   <Image
-                    src="/4.png"
+                    src="/reviews/4.png"
                     alt="RyZeey Platinum 2 in 6 Tagen"
                     width={520}
                     height={420}
@@ -128,7 +128,7 @@ export default function Testimonials() {
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
                   <Image
-                    src="/3.png"
+                    src="/reviews/3.png"
                     alt="RyZeey Ascendant 1"
                     width={520}
                     height={420}
@@ -169,7 +169,7 @@ export default function Testimonials() {
           >
             <div className="relative">
               <Image
-                src="/1.png"
+                src="/reviews/1.png"
                 alt="Yoyo Gold 3 → Diamond 2"
                 width={700}
                 height={520}
@@ -212,7 +212,7 @@ export default function Testimonials() {
           >
             <div className="relative">
               <Image
-                src="/2.png"
+                src="/reviews/2.png"
                 alt="Raphael Diamond 1"
                 width={700}
                 height={520}
