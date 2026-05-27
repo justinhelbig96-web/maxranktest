@@ -285,7 +285,7 @@ export default function Testimonials() {
           )}
         </AnimatePresence>
 
-        {/* ── Average rating ── */}
+        {/* ── Rating ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -299,8 +299,8 @@ export default function Testimonials() {
                 <Star key={i} className="w-5 h-5 text-[#6EE800] fill-[#6EE800]" />
               ))}
             </div>
-            <span className="text-white font-bold text-lg">4.9</span>
-            <span className="text-gray-400 text-sm">Ø Bewertung aus 500+ Sessions</span>
+            <span className="text-white font-bold text-lg">100%</span>
+            <span className="text-gray-400 text-sm">Positive Reviews</span>
           </div>
         </motion.div>
       </div>
