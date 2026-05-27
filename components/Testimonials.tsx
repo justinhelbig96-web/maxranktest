@@ -138,7 +138,7 @@ export default function Testimonials() {
           <div className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden">
 
             {/* Screenshot */}
-            <div className="relative h-[240px] sm:h-[340px] overflow-hidden">
+            <div className="relative h-[180px] sm:h-[250px] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current}
