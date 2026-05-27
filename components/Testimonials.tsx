@@ -136,8 +136,7 @@ export default function Testimonials() {
                 <span className="text-[#6EE800] font-medium">@Eisblokk</span>{" "}
                 das geschafft. Ich liebe den Typen nur ❤️ Die TikToks helfen auch krass zusätzlich zum Coaching.
               </p>
-              <div className="flex items-center justify-between mt-auto">
-                <span className="text-gray-600 text-xs">~5 Wochen</span>
+              <div className="flex items-center justify-end mt-auto">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
