@@ -1,241 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Yoyo",
-    date: "28.04.2026",
-    rank: "Gold 3 → Diamond 2",
-    avatar: "YO",
-    stars: 5,
-    review:
-      "Dank @PreciseErik seiner Hilfe und Geduld. Knapp 1 Monat von Gold 3 zu Dia 2. Nur Liebe an ihn 🙏",
-  },
-  {
-    name: "Raphael",
-    date: "26.04.2026",
-    rank: "→ Diamond 1",
-    avatar: "RA",
-    stars: 5,
-    review:
-      "Hatte vor genau 2 Wochen ein Coaching mit @koni und habe mich in dieser kurzen Zeit extrem verbessert! Ich kann mich nur nochmal wiederholen wie viel ein Coaching bringt und was für gute Tipps er gegeben hat. Danke nochmal!",
-  },
-  {
-    name: "Nemonis",
-    date: "19.04.2026",
-    rank: "",
-    avatar: "NE",
-    stars: 5,
-    review:
-      "Ich hatte am Montag Coaching bei @koni und es hat sich mehr als gelohnt. Fehler wurden in Ruhe erklärt und gleichzeitig eine Liste geschrieben was ich verbessern kann. Auch meinen Main-Agent hat er mir besser erklärt. Nach dem Coaching hab ich direkt gemerkt dass ich schon bisschen besser spiele.",
-  },
-  {
-    name: "VAL",
-    date: "07.04.2026",
-    rank: "",
-    avatar: "VA",
-    stars: 5,
-    review:
-      "Ich wurde gestern von @PreciseErik gecoacht und wollte nochmal danke sagen. Das Coaching hat mir echt sehr weitergeholfen. Ich hatte immer Probleme meine perfekte Sense zu finden, und jetzt habe ich sie endlich. Wurde früher schon mal von einem Immortal/Radiant-Kollegen gecoacht — aber hier wurde alles deutlich besser, genauer und verständlicher erklärt. Man merkt einfach, was ein richtiger Coach ausmacht. Ich werde definitiv nochmal buchen!",
-  },
-  {
-    name: "Garil",
-    date: "01.04.2026",
-    rank: "Neuer persönlicher Peak",
-    avatar: "GA",
-    stars: 5,
-    review:
-      "@koni hat mir viel erklärt und ist auf meine Fragen eingegangen. Es hat sich für mich zu 100% gelohnt, da ich heute schon meinen neuen Peak erreicht habe. Auf jeden Fall sehr empfehlenswert.",
-  },
-  {
-    name: "Yoyo",
-    date: "25.03.2026",
-    rank: "Gold 3 → Platinum 3",
-    avatar: "YO",
-    stars: 5,
-    review:
-      "Ich wurde vor genau 2 Wochen von @PreciseErik gecoacht und bin damals in Gold 3 gestartet. Jetzt stehe ich kurz vor Diamant. Ich habe gemerkt wie viel besser mein Aim, meine Entscheidungen und mein Game-Sense geworden sind. Viele Fehler, die ich vorher ständig gemacht habe, habe ich jetzt deutlich besser im Griff.",
-  },
-  {
-    name: "Anonym",
-    date: "24.03.2026",
-    rank: "Match MVP direkt danach",
-    avatar: "AN",
-    stars: 5,
-    review:
-      "Wurde heute von @koni gecoacht — er hat mir alles ruhig erklärt, war 100% real und hat nichts verschwiegen. Hat mir meine Fehler direkt gezeigt und konnte sie dann auch in einem Live-Deathmatch umsetzen. Erstes Game nach dem Coaching direkt Match MVP. W Coaching, werde es mir definitiv wieder holen 🙏",
-  },
-  {
-    name: "RyZeey",
-    date: "20.03.2026",
-    rank: "→ Platinum 2",
-    avatar: "RZ",
-    stars: 5,
-    review:
-      "In 6 Tagen mit den Tipps von @Eisblokk das geschafft. Ich liebe den Typen nur ❤️ Die TikToks helfen auch krass zusätzlich zum Coaching.",
-  },
-  {
-    name: "Yoyo",
-    date: "09.03.2026",
-    rank: "",
-    avatar: "YO",
-    stars: 5,
-    review:
-      "Ich wurde von @PreciseErik gecoacht und es hat sich gelohnt. Er hat sich Zeit genommen um sich die VOD anzuschauen und hat mir meine Fehler erklärt. Er war sehr sympathisch und hilfsbereit, hat mir Tipps zum Agent gegeben und mich drauf hingewiesen wie ich mein Crosshair zu placen hab. ES LOHNT SICH — wenn ihr gerade die Möglichkeit habt, bucht ein Coaching. Danke @PreciseErik für den Rankup, bester Mann ❤️",
-  },
-  {
-    name: "Anonym",
-    date: "24.02.2026",
-    rank: "",
-    avatar: "AN",
-    stars: 5,
-    review:
-      "Ich wurde von @koni gecoacht, das Coaching war wirklich sehr gut. Er hat mir geholfen meine Fehler zu verstehen und zu verbessern, mir Tipps für Matches gegeben und beigebracht wie man was am besten macht — wodurch ich endlich mal wieder eine Runde gewinnen konnte 😊 Ich hatte nicht erwartet, dass das so viel bringt, aber da lag ich falsch. Empfehle es wirklich jedem!",
-  },
-  {
-    name: "gelg",
-    date: "23.02.2026",
-    rank: "",
-    avatar: "GE",
-    stars: 5,
-    review:
-      "@Eisblokk hat mich gerade gecoacht. Er war sehr ruhig und nett, hat meine Fehler gut analysiert und ich hab das Game gewonnen. Was ich auch sehr gut finde: man kann ihn jederzeit anschreiben für Fragen. W Coaching!",
-  },
-  {
-    name: "ZNG",
-    date: "17.02.2026",
-    rank: "",
-    avatar: "ZN",
-    stars: 5,
-    review:
-      "@Eisblokk hat mich onstream gecoacht. Er war sehr nett, hat gut analysiert und immer wieder gefragt ob ich es verstehe. All in all war es sehr gut — ich würde es definitiv weiter empfehlen 💕",
-  },
-  {
-    name: "DY",
-    date: "14.02.2026",
-    rank: "",
-    avatar: "DY",
-    stars: 5,
-    review:
-      "Mein Coach @koni war sehr nett und hat mir sehr geholfen, meine Fehler erklärt und ingame geholfen. Ehrenmann, liebe dich ❤️",
-  },
-  {
-    name: "Anonym",
-    date: "10.02.2026",
-    rank: "",
-    avatar: "AN",
-    stars: 5,
-    review:
-      "Mein Coaching mit @koni war sehr gut, ich konnte viel von ihm lernen. Man kann sehr gut mit ihm reden, er hat ein riesiges Verständnis für alles. Ich kann das Coaching nur empfehlen — ich wünsche jedem dass sie ihn genau so erleben wie ich! Viel Glück euch allen ❤️",
-  },
-  {
-    name: "Anonym",
-    date: "31.01.2026",
-    rank: "Bronze 1 → Silver 2",
-    avatar: "AN",
-    stars: 5,
-    review:
-      "Wurde von @Eisblokk gecoacht, bin innerhalb 2 Wochen von Bronze 1 auf Silver 2 gekommen. Lohnt sich aufjedenfall, bester Mann.",
-  },
-  {
-    name: "Anonym",
-    date: "29.01.2026",
-    rank: "",
-    avatar: "AN",
-    stars: 5,
-    review:
-      "Ich wurde von @Eisblokk gecoacht und es war wirklich mega. Sehr netter und ehrlicher Typ, hat danach auch noch Fragen in DM beantwortet. Das Coaching war sehr gut strukturiert und er ist auf deine persönlichen Probleme eingegangen — hat eine Liste mit den wichtigsten Sachen mitgegeben.",
-  },
-  {
-    name: "Julius",
-    date: "25.01.2026",
-    rank: "",
-    avatar: "JU",
-    stars: 5,
-    review:
-      "Hatte ein Coaching bei @Eisblokk, er hat schnell herausgefunden wo meine Schwächen sind und wie ich sie verbessern kann. Er hat mir viele hilfreiche Tipps mitgegeben und schon im ersten Game nach dem Coaching merkt man einen Unterschied. Kann es nur weiter empfehlen!",
-  },
-  {
-    name: "Anonym",
-    date: "24.01.2026",
-    rank: "",
-    avatar: "AN",
-    stars: 5,
-    review:
-      "Ich hatte gestern Coaching bei @koni — er war mega cool und nett, ist mega auf mich eingegangen und hat mir wirklich wichtige und gute Tipps gegeben. Man kann super mit ihm reden und er hat echt Spaß daran, alles so ausführlich zu erklären. Ganz viel Liebe geht raus ❤️🔥",
-  },
-  {
-    name: "zngstu",
-    date: "23.01.2026",
-    rank: "",
-    avatar: "ZS",
-    stars: 5,
-    review:
-      "Coaching bei @Eisblokk: Super entspannt und nett, zwischenmenschlich auch super. Er konnte genau sehen wo und welche Fehler gemacht wurden und was man dagegen tun kann. Hoffe die nächste Session wird genauso gut! 🙌",
-  },
-];
-
-function renderReview(text: string) {
-  const parts = text.split(/(@PreciseErik|@koni|@Eisblokk)/g);
-  return parts.map((part, i) =>
-    /^(@PreciseErik|@koni|@Eisblokk)$/.test(part) ? (
-      <span key={i} className="text-[#6EE800] font-semibold">
-        {part}
-      </span>
-    ) : (
-      part
-    )
-  );
-}
-
-function ReviewCard({ t }: { t: (typeof testimonials)[0] }) {
-  return (
-    <div className="flex-none w-80 bg-[#1e1f22] border border-white/8 rounded-2xl p-5 mx-3">
-      {/* Header: avatar + name + date */}
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-9 h-9 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-xs font-black flex-shrink-0">
-          {t.avatar}
-        </div>
-        <div>
-          <div className="text-white text-sm font-semibold leading-none">{t.name}</div>
-          <div className="text-gray-500 text-xs mt-0.5">{t.date}</div>
-        </div>
-      </div>
-
-      {/* Review text */}
-      <p className="text-gray-300 text-sm leading-relaxed mb-4">{renderReview(t.review)}</p>
-
-      {/* Rank badge */}
-      <div className="flex items-center gap-1.5 pt-3 border-t border-white/8">
-        <div className="flex gap-0.5">
-          {Array.from({ length: t.stars }).map((_, i) => (
-            <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
-          ))}
-        </div>
-        {t.rank && <span className="text-[#6EE800] text-xs font-medium ml-1">{t.rank}</span>}
-      </div>
-    </div>
-  );
-}
+import { Star, TrendingUp, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Testimonials() {
-  // Duplicate for seamless loop
-  const doubled = [...testimonials, ...testimonials];
-
   return (
     <section id="testimonials" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(110,232,0,0.03)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
+        {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <span className="text-[#6EE800] text-sm font-bold tracking-widest uppercase">
             Schüler-Bewertungen
@@ -251,39 +32,240 @@ export default function Testimonials() {
             Glaub uns nicht einfach. Hier ist, was unsere Schüler sagen.
           </p>
         </motion.div>
-      </div>
 
-      {/* Marquee */}
-      <div className="marquee-track relative overflow-hidden">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-
-        <div className="flex animate-marquee w-max">
-          {doubled.map((t, i) => (
-            <ReviewCard key={i} t={t} />
-          ))}
-        </div>
-      </div>
-
-      {/* Average rating row */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex justify-center mt-12"
-      >
-        <div className="flex items-center gap-3 bg-[#111] border border-white/10 rounded-2xl px-6 py-4">
-          <div className="flex gap-0.5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-[#6EE800] fill-[#6EE800]" />
-            ))}
+        {/* ── Transformation Story: RyZeey ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          {/* Label */}
+          <div className="flex items-center gap-2 mb-5">
+            <TrendingUp className="w-4 h-4 text-[#6EE800]" />
+            <span className="text-[#6EE800] text-xs font-bold tracking-widest uppercase">
+              Transformation Story
+            </span>
           </div>
-          <span className="text-white font-bold text-lg">4.9</span>
-          <span className="text-gray-400 text-sm">Ø Bewertung aus 500+ Sessions</span>
+
+          <div className="bg-gradient-to-br from-[#111316] to-[#0d0f12] border border-[#6EE800]/25 rounded-3xl p-6 lg:p-8">
+            {/* Card header */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-sm font-black">
+                  RZ
+                </div>
+                <div>
+                  <span className="text-white font-black text-xl block leading-none">RyZeey</span>
+                  <span className="text-gray-500 text-xs mt-0.5">Coaching mit @Eisblokk</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 bg-[#6EE800]/10 border border-[#6EE800]/30 rounded-full px-4 py-2">
+                <TrendingUp className="w-3.5 h-3.5 text-[#6EE800]" />
+                <span className="text-[#6EE800] font-bold text-sm">Gold 3 → Ascendant 1</span>
+                <span className="text-gray-500 text-xs border-l border-white/10 pl-2 ml-1">~5 Wochen</span>
+              </div>
+            </div>
+
+            {/* 3-step screenshot progression */}
+            <div className="flex flex-col md:flex-row items-stretch gap-3">
+              {/* Step 1 */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-5 h-5 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] font-bold text-[10px] flex-shrink-0">
+                    1
+                  </span>
+                  <span className="text-gray-500 text-xs">14.03.2026 · Gold 3</span>
+                </div>
+                <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
+                  <Image
+                    src="/5.png"
+                    alt="RyZeey Gold 3 nach Eisblokk Coaching"
+                    width={520}
+                    height={420}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <div className="flex items-center justify-center py-1 md:py-0 md:px-1">
+                <ChevronRight className="w-5 h-5 text-[#6EE800] rotate-90 md:rotate-0 flex-shrink-0" />
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-5 h-5 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] font-bold text-[10px] flex-shrink-0">
+                    2
+                  </span>
+                  <span className="text-gray-500 text-xs">20.03.2026 · Platinum 2</span>
+                </div>
+                <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
+                  <Image
+                    src="/4.png"
+                    alt="RyZeey Platinum 2 in 6 Tagen"
+                    width={520}
+                    height={420}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <div className="flex items-center justify-center py-1 md:py-0 md:px-1">
+                <ChevronRight className="w-5 h-5 text-[#6EE800] rotate-90 md:rotate-0 flex-shrink-0" />
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-5 h-5 rounded-full bg-[#6EE800]/20 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] font-bold text-[10px] flex-shrink-0">
+                    3
+                  </span>
+                  <span className="text-gray-500 text-xs">22.04.2026 · Ascendant 1 🎉</span>
+                </div>
+                <div className="rounded-2xl overflow-hidden border border-white/8 flex-1">
+                  <Image
+                    src="/3.png"
+                    alt="RyZeey Ascendant 1"
+                    width={520}
+                    height={420}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Quote bar */}
+            <div className="mt-6 bg-[#080808] rounded-2xl px-5 py-4 border border-white/5 flex items-start gap-3">
+              <span className="text-[#6EE800] text-2xl leading-none mt-0.5 select-none">"</span>
+              <div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  In 6 Tagen mit den Tipps von{" "}
+                  <span className="text-[#6EE800] font-semibold">@Eisblokk</span> das geschafft.
+                  Ich liebe den Typen nur ❤️ Die TikToks helfen auch krass zusätzlich zum Coaching.
+                </p>
+                <div className="flex gap-0.5 mt-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── Other Reviews: Yoyo + Raphael ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+          {/* Yoyo */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden"
+          >
+            <div className="relative">
+              <Image
+                src="/1.png"
+                alt="Yoyo Gold 3 → Diamond 2"
+                width={700}
+                height={520}
+                className="w-full object-cover object-top"
+              />
+              <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm border border-[#6EE800]/30 rounded-full px-3 py-1">
+                <span className="text-[#6EE800] text-xs font-bold">Gold 3 → Diamond 2</span>
+              </div>
+            </div>
+            <div className="p-5">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-[10px] font-black">
+                    YO
+                  </div>
+                  <span className="text-white font-bold text-sm">Yoyo</span>
+                  <span className="text-gray-500 text-xs">28.04.2026</span>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
+                  ))}
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Dank{" "}
+                <span className="text-[#6EE800] font-medium">@PreciseErik</span>{" "}
+                seiner Hilfe und Geduld. Knapp 1 Monat von Gold 3 zu Dia 2. Nur Liebe an ihn 🙏
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Raphael */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-[#111316] border border-white/8 rounded-3xl overflow-hidden"
+          >
+            <div className="relative">
+              <Image
+                src="/2.png"
+                alt="Raphael Diamond 1"
+                width={700}
+                height={520}
+                className="w-full object-cover object-top"
+              />
+              <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm border border-[#6EE800]/30 rounded-full px-3 py-1">
+                <span className="text-[#6EE800] text-xs font-bold">→ Diamond 1</span>
+              </div>
+            </div>
+            <div className="p-5">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-[#6EE800]/15 border border-[#6EE800]/30 flex items-center justify-center text-[#6EE800] text-[10px] font-black">
+                    RA
+                  </div>
+                  <span className="text-white font-bold text-sm">Raphael</span>
+                  <span className="text-gray-500 text-xs">26.04.2026</span>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 text-[#6EE800] fill-[#6EE800]" />
+                  ))}
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Hatte vor genau 2 Wochen ein Coaching mit{" "}
+                <span className="text-[#6EE800] font-medium">@koni</span>{" "}
+                und habe mich extrem verbessert! Kann es nur nochmal wiederholen wie viel ein
+                Coaching bringt. Danke nochmal!
+              </p>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+
+        {/* ── Average rating ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-center"
+        >
+          <div className="flex items-center gap-3 bg-[#111] border border-white/10 rounded-2xl px-6 py-4">
+            <div className="flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-[#6EE800] fill-[#6EE800]" />
+              ))}
+            </div>
+            <span className="text-white font-bold text-lg">4.9</span>
+            <span className="text-gray-400 text-sm">Ø Bewertung aus 500+ Sessions</span>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
