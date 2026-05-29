@@ -40,28 +40,22 @@ function Counter({ target, suffix = "", prefix = "", duration = 2000 }: CounterP
 
 const stats = [
   {
-    target: 500,
+    target: 300,
     suffix: "+",
-    label: "Trainierte Spieler",
-    sub: "und mehr",
+    staticValue: null,
+    label: "zufriedene Schüler",
   },
   {
-    target: 95,
+    target: 100,
     suffix: "%",
-    label: "Rank-Up-Quote",
-    sub: "innerhalb von 4 Sessions",
+    staticValue: null,
+    label: "positive Reviews",
   },
   {
-    target: 8,
-    suffix: "+",
-    label: "Ø Rank-Divisionen",
-    sub: "pro Schüler gewonnen",
-  },
-  {
-    target: 2000,
-    suffix: "+",
-    label: "Coaching-Stunden",
-    sub: "gesamt",
+    target: 0,
+    suffix: "",
+    staticValue: "Immortal+",
+    label: "Coaches",
   },
 ];
 
@@ -70,7 +64,7 @@ export default function StatsBar() {
     <section className="relative bg-[#0c0c0c] border-y border-white/5 py-14">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#6EE800]/[0.02] to-transparent pointer-events-none" />
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+        <div className="grid grid-cols-3 gap-8 lg:gap-4">
           {stats.map((stat, i) => (
             <div
               key={i}
@@ -87,12 +81,15 @@ export default function StatsBar() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                <Counter target={stat.target} suffix={stat.suffix} />
+                {stat.staticValue ? (
+                  <span>{stat.staticValue}</span>
+                ) : (
+                  <Counter target={stat.target} suffix={stat.suffix} />
+                )}
               </div>
               <div className="text-white font-semibold mt-2 text-sm md:text-base">
                 {stat.label}
               </div>
-              <div className="text-gray-500 text-xs mt-0.5">{stat.sub}</div>
             </div>
           ))}
         </div>

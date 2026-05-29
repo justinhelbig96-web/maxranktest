@@ -5,7 +5,7 @@ import { Check, Zap, Lock } from "lucide-react";
 
 const tiers = [
   {
-    name: "Rankmaxx Ignition",
+    name: "IGNITION",
     price: "24,99",
     originalPrice: null,
     period: "/ Monat",
@@ -28,7 +28,7 @@ const tiers = [
     ],
   },
   {
-    name: "Rankmaxx Ascension",
+    name: "ASCENSION",
     price: "49,99",
     originalPrice: null,
     period: "/ Monat",
