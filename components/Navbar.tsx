@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -16,6 +17,9 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const navHref = (anchor: string) => isHome ? anchor : `/${anchor}`;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -37,7 +41,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
+          <a href="/" className="flex items-center gap-2.5">
             <Image src="/logo.png" alt="RANKMAXX Logo" width={36} height={36} className="rounded-md" />
             <span className="font-black text-lg tracking-tight">
               RANK<span className="text-[#6EE800]">MAXX</span>
@@ -49,7 +53,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={navHref(link.href)}
                 className="text-sm text-gray-400 hover:text-white transition-colors font-medium"
               >
                 {link.label}
@@ -94,7 +98,7 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <a
                   key={link.label}
-                  href={link.href}
+                  href={navHref(link.href)}
                   onClick={() => setMobileOpen(false)}
                   className="py-3 px-4 text-gray-300 hover:text-[#6EE800] hover:bg-white/5 rounded-lg transition-all font-medium"
                 >
