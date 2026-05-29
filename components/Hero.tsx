@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Users, TrendingUp, Star, Shield } from "lucide-react";
+import { Zap, Users, Star, Shield } from "lucide-react";
 import Image from "next/image";
 
 const rankIcons = [
@@ -14,10 +14,9 @@ const rankIcons = [
 ];
 
 const stats = [
-  { icon: Users, value: "500+", label: "Mitglieder" },
-  { icon: TrendingUp, value: "95%", label: "Rank-Up-Quote" },
-  { icon: Star, value: "4.9★", label: "Bewertung" },
-  { icon: Shield, value: "Radiant", label: "Coach-Rang" },
+  { icon: Users, value: "300+", label: "zufriedene Schüler" },
+  { icon: Star, value: "100%", label: "positive Reviews" },
+  { icon: Shield, value: "Immortal+", label: "Coaches" },
 ];
 
 export default function Hero() {
