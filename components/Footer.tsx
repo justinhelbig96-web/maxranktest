@@ -23,7 +23,7 @@ const navGroups = [
     links: [
       { label: "Discord", href: "#" },
       { label: "Session buchen", href: "#pricing" },
-      { label: "Impressum", href: "#" },
+      { label: "Impressum", href: "/impressum" },
     ],
   },
 ];
@@ -120,10 +120,10 @@ export default function Footer() {
             © {new Date().getFullYear()} RANKMAXX — Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-5 text-sm">
-            <a href="#" className="text-gray-600 hover:text-gray-400 transition-colors">
+            <a href="/datenschutz" className="text-gray-600 hover:text-gray-400 transition-colors">
               Datenschutz
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-400 transition-colors">
+            <a href="/agb" className="text-gray-600 hover:text-gray-400 transition-colors">
               AGB
             </a>
           </div>
