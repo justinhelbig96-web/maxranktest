@@ -21,7 +21,7 @@ const features = [
     icon: Users,
     title: "Group Calls",
     description:
-      "Mehrfach wöchentliche Gruppencalls, in denen wir über Progress und wichtige Themen fürs Ranked sprechen — z.B. Matchmaking und Mentalität.",
+      "Wöchentliche Gruppencalls, in denen wir über Progress und wichtige Themen fürs Ranked sprechen — z.B. Matchmaking und Mentalität.",
   },
   {
     icon: MessageCircle,

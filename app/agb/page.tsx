@@ -94,7 +94,7 @@ export default function AGBPage() {
             <h2 className="text-white font-bold text-base mb-2">§ 9 Kontakt</h2>
             <p>
               Bei Fragen zu diesen AGB wende dich an:{" "}
-              <a href="mailto:[EMAIL]" className="text-[#6EE800] hover:underline">[EMAIL]</a>
+              <a href="mailto:eisblokk.business@gmail.com" className="text-[#6EE800] hover:underline">eisblokk.business@gmail.com</a>
             </p>
           </div>
         </section>

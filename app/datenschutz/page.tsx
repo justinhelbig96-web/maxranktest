@@ -28,10 +28,10 @@ export default function DatenschutzPage() {
             <h2 className="text-white font-bold text-base mb-2">2. Verantwortlicher</h2>
             <p>
               Verantwortlicher für die Datenverarbeitung auf dieser Website ist:<br /><br />
-              [VORNAME NACHNAME]<br />
-              [STRASSE HAUSNUMMER]<br />
-              [PLZ ORT]<br />
-              E-Mail: <a href="mailto:[EMAIL]" className="text-[#6EE800] hover:underline">[EMAIL]</a>
+              Anton L. Balla<br />
+              In den Gärten 3<br />
+              67259 Großniedesheim<br />
+              E-Mail: <a href="mailto:eisblokk.business@gmail.com" className="text-[#6EE800] hover:underline">eisblokk.business@gmail.com</a>
             </p>
           </div>
 

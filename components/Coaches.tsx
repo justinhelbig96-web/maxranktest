@@ -19,8 +19,8 @@ const coaches = [
     description: "",
     color: "#AC3733",
     image: "/saleymas.jpg",
-    twitch: null,
-    tiktok: null,
+    twitch: "https://www.twitch.tv/saylemas",
+    tiktok: "https://www.tiktok.com/@saylemas",
   },
   {
     name: "Koni",

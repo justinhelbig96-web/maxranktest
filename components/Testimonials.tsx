@@ -244,14 +244,23 @@ export default function Testimonials() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex justify-center"
         >
-          <div className="flex items-center gap-3 bg-[#111] border border-white/10 rounded-2xl px-6 py-4">
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-[#6EE800] fill-[#6EE800]" />
-              ))}
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center gap-3 bg-[#111] border border-white/10 rounded-2xl px-6 py-4">
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-[#6EE800] fill-[#6EE800]" />
+                ))}
+              </div>
+              <span className="text-white font-bold text-lg">100%</span>
+              <span className="text-gray-400 text-sm">Positive Reviews</span>
             </div>
-            <span className="text-white font-bold text-lg">100%</span>
-            <span className="text-gray-400 text-sm">Positive Reviews</span>
+            <p className="text-gray-500 text-xs">
+              Alle Reviews können transparent im{" "}
+              <a href="https://discord.gg/rankmaxx" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#6EE800] transition-colors underline underline-offset-2">
+                Discord
+              </a>{" "}
+              nachgelesen werden.
+            </p>
           </div>
         </motion.div>
       </div>

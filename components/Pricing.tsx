@@ -43,7 +43,7 @@ const tiers = [
       "Alles aus Tier 1 inklusive",
       "1× Individuelles Coaching/Monat (Zeitgestaltung frei wählbar)",
       "Direkter DM-Kontakt mit deinem Coach",
-      "Monthly Gameplan (tägliche Tipps zu Agents & Maps)",
+      "Monthly Gameplan",
       "Coaching Log — Notizen nach jeder Session",
     ],
   },

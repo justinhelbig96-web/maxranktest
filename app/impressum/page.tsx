@@ -18,9 +18,9 @@ export default function ImpressumPage() {
           <div>
             <h2 className="text-white font-bold text-base mb-2">Angaben gemäß § 5 TMG</h2>
             <p>
-              [VORNAME NACHNAME]<br />
-              [STRASSE HAUSNUMMER]<br />
-              [PLZ ORT]<br />
+              Anton L. Balla<br />
+              In den Gärten 3<br />
+              67259 Großniedesheim<br />
               Deutschland
             </p>
           </div>
@@ -28,16 +28,16 @@ export default function ImpressumPage() {
           <div>
             <h2 className="text-white font-bold text-base mb-2">Kontakt</h2>
             <p>
-              E-Mail: <a href="mailto:[EMAIL]" className="text-[#6EE800] hover:underline">[EMAIL]</a>
+              E-Mail: <a href="mailto:eisblokk.business@gmail.com" className="text-[#6EE800] hover:underline">eisblokk.business@gmail.com</a>
             </p>
           </div>
 
           <div>
             <h2 className="text-white font-bold text-base mb-2">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p>
-              [VORNAME NACHNAME]<br />
-              [STRASSE HAUSNUMMER]<br />
-              [PLZ ORT]
+              Anton L. Balla<br />
+              In den Gärten 3<br />
+              67259 Großniedesheim
             </p>
           </div>
 
