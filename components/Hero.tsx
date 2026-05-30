@@ -101,14 +101,12 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-16"
         >
-          <a
-            href="https://whop.com/maxranktestshop/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
             className="group relative px-10 py-4 bg-[#6EE800] text-black font-bold text-lg rounded-xl hover:bg-[#A3F000] transition-all duration-200 hover:shadow-[0_0_40px_rgba(110,232,0,0.45)] active:scale-[0.97]"
           >
             Mitglied werden
-          </a>
+          </button>
         </motion.div>
 
         {/* Stats strip */}

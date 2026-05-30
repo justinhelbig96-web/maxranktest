@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Target, Library, Users, MessageCircle, Trophy, ListChecks } from "lucide-react";
+import { Target, Library, Users, MessageCircle, ListChecks } from "lucide-react";
 
 const features = [
   {
@@ -28,12 +28,6 @@ const features = [
     title: "Discord-Support",
     description:
       "Du hast direkten Zugang zu deinem Coach auf Discord für Feedback, Tipps, mentale Unterstützung und kannst außerdem jederzeit Clips zum Review einschicken.",
-  },
-  {
-    icon: Trophy,
-    title: "Bewiesene Ergebnisse",
-    description:
-      "95% unserer Schüler ranken innerhalb der ersten 4 Sessions auf. Wir stehen zu unseren Coaching-Ergebnissen — keine leeren Versprechen.",
   },
   {
     icon: ListChecks,
@@ -90,7 +84,7 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5"
         >
           {features.map((feature, i) => {
             const Icon = feature.icon;
@@ -98,7 +92,7 @@ export default function Features() {
               <motion.div
                 key={i}
                 variants={cardVariants}
-                className="card-hover group relative bg-[#111111] border border-white/8 rounded-2xl p-6 overflow-hidden"
+                className={`card-hover group relative bg-[#111111] border border-white/8 rounded-2xl p-6 overflow-hidden lg:col-span-2${i === 3 ? " lg:col-start-2" : ""}`}
               >
                 {/* Background shimmer on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#6EE800]/0 via-transparent to-[#6EE800]/0 group-hover:from-[#6EE800]/5 group-hover:to-[#6EE800]/3 transition-all duration-300 pointer-events-none rounded-2xl" />
