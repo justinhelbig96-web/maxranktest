@@ -5,7 +5,6 @@ const navGroups = [
   {
     label: "Pakete",
     links: [
-      { label: "Ignition", href: "#pricing" },
       { label: "Ascension", href: "#pricing" },
     ],
   },

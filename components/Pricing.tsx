@@ -5,30 +5,7 @@ import { Check, Zap, Lock } from "lucide-react";
 
 const tiers = [
   {
-    name: "IGNITION",
-    price: "24,99",
-    originalPrice: null,
-    period: "/ Monat",
-    description: "Alles was du brauchst, um eigenständig zu climben.",
-    badge: null,
-    highlight: false,
-    color: "#6EE800",
-    glow: "rgba(110,232,0,0.25)",
-    border: "rgba(110,232,0,0.4)",
-    checkoutUrl: "https://whop.com/joined/rankmaxx-deb8/products/rankmaxx-ignition/",
-    features: [
-      "Zugang zur Videobibliothek (Smurf Commentaries & Playbooks)",
-      "Premier Team Betreuung",
-      "Stage Calls",
-      "Progress Tracking",
-      "Rankmaxx Aimroutinen",
-      "Clip Reviews von Coaches",
-      "Interne Challenges (RR etc.)",
-      "LFG System",
-    ],
-  },
-  {
-    name: "ASCENSION",
+    name: "RANKMAXX ASCENSION",
     price: "49,99",
     originalPrice: null,
     period: "/ Monat",
@@ -40,7 +17,10 @@ const tiers = [
     border: "rgba(253,222,108,0.5)",
     checkoutUrl: "https://whop.com/joined/rankmaxx-deb8/products/rankmaxx-ascension/",
     features: [
-      "Alles aus Tier 1 inklusive",
+      "Stage Calls",
+      "Progress Tracking",
+      "Clip Reviews von Coaches",
+      "LFG System",
       "1× Individuelles Coaching/Monat (Zeitgestaltung frei wählbar)",
       "Direkter DM-Kontakt mit deinem Coach",
       "Monthly Gameplan",
@@ -73,7 +53,7 @@ export default function Pricing() {
             Wähle <span className="text-[#6EE800]">dein Level</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-lg mx-auto">
-            Beide Modelle jederzeit kündbar. Tier 2 ist limitiert.
+            Jederzeit kündbar — kein Commitment. Plätze limitiert.
           </p>
         </motion.div>
 
@@ -94,7 +74,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6 items-start">
+        <div className="flex justify-center">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -106,7 +86,7 @@ export default function Pricing() {
                 borderColor: tier.border,
                 boxShadow: tier.highlight ? `0 0 60px ${tier.glow}, 0 0 120px ${tier.glow}` : undefined,
               }}
-              className={`relative rounded-2xl p-7 ${
+              className={`relative rounded-2xl p-7 w-full max-w-md ${
                 tier.highlight ? "bg-[#0d1018] border-2" : "bg-[#111111] border border-white/10"
               }`}
             >
@@ -175,7 +155,7 @@ export default function Pricing() {
                   border: tier.highlight ? "none" : `1px solid ${tier.border}`,
                 }}
               >
-                {tier.highlight ? "Ascension beitreten" : "Ignition starten"}
+                Ascension beitreten
               </a>
             </motion.div>
           ))}

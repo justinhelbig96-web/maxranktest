@@ -19,7 +19,7 @@ export default function AGBPage() {
             <h2 className="text-white font-bold text-base mb-2">§ 1 Geltungsbereich</h2>
             <p>
               Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen RANKMAXX
-              ([VORNAME NACHNAME], [ADRESSE]) und dem Kunden über die Erbringung von Coaching-
+              und dem Kunden über die Erbringung von Coaching-
               und Community-Leistungen im Bereich Valorant.
             </p>
           </div>
