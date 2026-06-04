@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Target, Users, MessageCircle, ListChecks } from "lucide-react";
+import { Target, Users, MessageCircle } from "lucide-react";
 
 const features = [
   {
@@ -23,12 +23,6 @@ const features = [
     description:
       "Du hast direkten Zugang zu deinem Coach auf Discord für Feedback, Tipps, mentale Unterstützung und kannst außerdem jederzeit Clips zum Review einschicken.",
   },
-  {
-    icon: ListChecks,
-    title: "Vorgefertigte Routinen",
-    description:
-      "Radiant Approved Routinen für jeden Spieler — mit optionalen KovaaK's & Aimlabs Abteilungen für gezielte Mechanik-Verbesserung.",
-  },
 ];
 
 const containerVariants = {
@@ -46,7 +40,7 @@ export default function Features() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="features" className="py-24 bg-[#080808]">
+    <section id="features" className="py-16 bg-[#080808]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
@@ -54,7 +48,7 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="text-[#6EE800] text-sm font-bold tracking-widest uppercase">
             Warum RANKMAXX
@@ -78,7 +72,7 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto"
         >
           {features.map((feature, i) => {
             const Icon = feature.icon;
@@ -86,7 +80,7 @@ export default function Features() {
               <motion.div
                 key={i}
                 variants={cardVariants}
-                className={`card-hover group relative bg-[#111111] border border-white/8 rounded-2xl p-6 overflow-hidden lg:col-span-2${i === 3 ? " lg:col-start-3" : ""}`}
+                className="card-hover group relative bg-[#111111] border border-white/8 rounded-2xl p-6 overflow-hidden"
               >
                 {/* Background shimmer on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#6EE800]/0 via-transparent to-[#6EE800]/0 group-hover:from-[#6EE800]/5 group-hover:to-[#6EE800]/3 transition-all duration-300 pointer-events-none rounded-2xl" />
