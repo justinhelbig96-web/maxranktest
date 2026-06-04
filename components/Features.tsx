@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Target, Library, Users, MessageCircle, ListChecks } from "lucide-react";
+import { Target, Users, MessageCircle, ListChecks } from "lucide-react";
 
 const features = [
   {
@@ -12,16 +12,10 @@ const features = [
       "Als Rankmaxx Ascension Mitglied hast du ein monatliches Coaching mit Fokus auf dich und dein Gameplay — mit einem unserer Immortal+ Coaches.",
   },
   {
-    icon: Library,
-    title: "Exklusive Videobibliothek",
-    description:
-      "24/7 Zugriff auf unsere ausführlichen Videoreihen mit Radiant Playbooks und Agent Guides für einen schnellen Aufstieg.",
-  },
-  {
     icon: Users,
     title: "Group Calls",
     description:
-      "Wöchentliche Gruppencalls, in denen wir über Progress und wichtige Themen fürs Ranked sprechen — z.B. Matchmaking und Mentalität.",
+      "Mehrfach wöchentliche Gruppencalls, in denen wir über Progress und wichtige Themen fürs Ranked sprechen — z.B. Matchmaking und Mentalität.",
   },
   {
     icon: MessageCircle,
@@ -92,7 +86,7 @@ export default function Features() {
               <motion.div
                 key={i}
                 variants={cardVariants}
-                className={`card-hover group relative bg-[#111111] border border-white/8 rounded-2xl p-6 overflow-hidden lg:col-span-2${i === 3 ? " lg:col-start-2" : ""}`}
+                className={`card-hover group relative bg-[#111111] border border-white/8 rounded-2xl p-6 overflow-hidden lg:col-span-2${i === 3 ? " lg:col-start-3" : ""}`}
               >
                 {/* Background shimmer on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#6EE800]/0 via-transparent to-[#6EE800]/0 group-hover:from-[#6EE800]/5 group-hover:to-[#6EE800]/3 transition-all duration-300 pointer-events-none rounded-2xl" />
