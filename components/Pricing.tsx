@@ -11,7 +11,7 @@ const tiers = [
     period: "/ Monat",
     description: "Limitiert — persönliche Betreuung auf höchstem Niveau.",
     soldOut: true,
-    badge: "AUSVERKAUFT",
+    badge: "LIMITIERT",
     highlight: true,
     color: "#FDDE6C",
     glow: "rgba(253,222,108,0.3)",
