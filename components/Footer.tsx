@@ -12,7 +12,6 @@ const navGroups = [
     label: "Info",
     links: [
       { label: "Features", href: "#features" },
-      { label: "So funktioniert's", href: "#how-it-works" },
       { label: "Bewertungen", href: "#testimonials" },
       { label: "FAQ", href: "#faq" },
     ],
@@ -21,8 +20,6 @@ const navGroups = [
     label: "Kontakt",
     links: [
       { label: "Discord", href: "#" },
-      { label: "Session buchen", href: "#pricing" },
-      { label: "Impressum", href: "/impressum" },
     ],
   },
 ];
@@ -113,20 +110,7 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} RANKMAXX — Alle Rechte vorbehalten.
-          </p>
-          <div className="flex gap-5 text-sm">
-            <a href="/datenschutz" className="text-gray-600 hover:text-gray-400 transition-colors">
-              Datenschutz
-            </a>
-            <a href="/agb" className="text-gray-600 hover:text-gray-400 transition-colors">
-              AGB
-            </a>
-          </div>
-        </div>
+
       </div>
     </footer>
   );

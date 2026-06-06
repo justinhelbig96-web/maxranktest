@@ -10,7 +10,8 @@ const tiers = [
     originalPrice: null,
     period: "/ Monat",
     description: "Limitiert — persönliche Betreuung auf höchstem Niveau.",
-    badge: "LIMITIERT",
+    soldOut: true,
+    badge: "AUSVERKAUFT",
     highlight: true,
     color: "#FDDE6C",
     glow: "rgba(253,222,108,0.3)",
@@ -96,6 +97,16 @@ export default function Pricing() {
                 style={{ background: `radial-gradient(circle at top right, ${tier.color}, transparent 70%)` }}
               />
 
+              {/* Diagonal AUSVERKAUFT Banner */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                <div
+                  className="absolute top-[28px] right-[-38px] w-[160px] text-center py-1.5 text-xs font-black tracking-widest text-black rotate-45"
+                  style={{ backgroundColor: "#FDDE6C" }}
+                >
+                  AUSVERKAUFT
+                </div>
+              </div>
+
               {/* Badge */}
               {tier.badge && (
                 <div
@@ -143,20 +154,22 @@ export default function Pricing() {
                 ))}
               </ul>
 
+              {/* Verfügbare Plätze */}
+              <div className="flex items-center justify-between text-xs text-gray-400 mb-4">
+                <span>Verfügbare Plätze</span>
+                <span className="font-bold text-red-400">0 / 10</span>
+              </div>
+
               {/* CTA */}
-              <a
-                href={tier.checkoutUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full py-3.5 rounded-xl text-center font-black text-base transition-all duration-200 active:scale-[0.97] hover:brightness-110"
+              <div
+                className="block w-full py-3.5 rounded-xl text-center font-black text-base cursor-not-allowed opacity-50 select-none"
                 style={{
-                  backgroundColor: tier.highlight ? tier.color : "transparent",
-                  color: tier.highlight ? "#000" : tier.color,
-                  border: tier.highlight ? "none" : `1px solid ${tier.border}`,
+                  backgroundColor: "#555",
+                  color: "#000",
                 }}
               >
-                Ascension beitreten
-              </a>
+                Ausverkauft
+              </div>
             </motion.div>
           ))}
         </div>
