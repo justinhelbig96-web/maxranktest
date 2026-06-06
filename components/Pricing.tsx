@@ -100,10 +100,14 @@ export default function Pricing() {
               {/* Diagonal AUSVERKAUFT Banner */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
                 <div
-                  className="absolute top-[28px] right-[-38px] w-[160px] text-center py-1.5 text-xs font-black tracking-widest text-black rotate-45"
-                  style={{ backgroundColor: "#FDDE6C" }}
+                  className="absolute top-[32px] right-[-42px] w-[180px] text-center py-2 text-xs font-black tracking-widest text-white rotate-45 shadow-lg"
+                  style={{
+                    background: "linear-gradient(90deg, #b91c1c, #ef4444)",
+                    boxShadow: "0 0 18px rgba(239,68,68,0.7), 0 2px 8px rgba(0,0,0,0.5)",
+                    textShadow: "0 1px 4px rgba(0,0,0,0.4)",
+                  }}
                 >
-                  AUSVERKAUFT
+                  🔴 AUSVERKAUFT
                 </div>
               </div>
 
