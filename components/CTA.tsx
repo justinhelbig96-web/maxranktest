@@ -32,17 +32,15 @@ export default function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="https://whop.com/maxranktestshop/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-[#6EE800] text-black font-black text-lg rounded-xl hover:bg-[#A3F000] transition-colors shadow-[0_0_40px_rgba(110,232,0,0.3)] hover:shadow-[0_0_60px_rgba(110,232,0,0.5)]"
             >
               Mitglied werden
               <ArrowRight className="w-5 h-5" />
-            </motion.a>
+            </motion.button>
             <a
               href="#testimonials"
               className="inline-flex items-center justify-center gap-2 px-9 py-4 border border-white/15 text-white font-semibold text-lg rounded-xl hover:border-[#6EE800]/40 hover:text-[#6EE800] transition-all"
