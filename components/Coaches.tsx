@@ -74,7 +74,7 @@ export default function Coaches() {
             Deine <span className="text-[#6EE800]">Coaches</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-            Alle unsere Coaches spielen auf Immortal+ und wissen genau, wie man klimbt.
+            Alle unsere Coaches spielen auf Immortal+ und wissen genau, wie man climbt.
           </p>
         </motion.div>
 
