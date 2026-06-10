@@ -22,6 +22,14 @@ const navGroups = [
       { label: "Discord", href: "#" },
     ],
   },
+  {
+    label: "Rechtliches",
+    links: [
+      { label: "Impressum", href: "/impressum" },
+      { label: "Datenschutz", href: "/datenschutz" },
+      { label: "AGB", href: "/agb" },
+    ],
+  },
 ];
 
 export default function Footer() {
