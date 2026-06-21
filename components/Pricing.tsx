@@ -50,7 +50,7 @@ export default function Pricing() {
             className="text-4xl md:text-5xl font-black uppercase mt-3 text-white"
             style={{ fontFamily: "Rajdhani, sans-serif" }}
           >
-            Wähle <span className="text-[#6EE800]">dein Level</span>
+            Erreiche <span className="text-[#6EE800]">dein nächstes Level</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-lg mx-auto">
             Jederzeit kündbar — kein Commitment. Plätze limitiert.
