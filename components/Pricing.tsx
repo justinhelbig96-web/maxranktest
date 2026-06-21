@@ -96,17 +96,17 @@ export default function Pricing() {
                 style={{ background: `radial-gradient(circle at top right, ${tier.color}, transparent 70%)` }}
               />
 
-              {/* Diagonal AUSVERKAUFT Banner */}
+              {/* Diagonal AUSVERKAUFT Banner (now Discord blue) */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
                 <div
-                  className="absolute top-[32px] right-[-42px] w-[180px] text-center py-2 text-xs font-black tracking-widest text-white rotate-45 shadow-lg"
+                  className="absolute top-[32px] right-[-42px] w-[260px] text-center py-2 text-xs font-black tracking-widest text-white rotate-45 shadow-lg"
                   style={{
-                    background: "linear-gradient(90deg, #b91c1c, #ef4444)",
-                    boxShadow: "0 0 18px rgba(239,68,68,0.7), 0 2px 8px rgba(0,0,0,0.5)",
+                    background: "linear-gradient(90deg, #4752C4, #5865F2)",
+                    boxShadow: "0 0 18px rgba(88,101,242,0.6), 0 2px 8px rgba(0,0,0,0.5)",
                     textShadow: "0 1px 4px rgba(0,0,0,0.4)",
                   }}
                 >
-                  🔴 AUSVERKAUFT
+                  Verfügbarkeit auf Anfrage
                 </div>
               </div>
 
@@ -164,15 +164,18 @@ export default function Pricing() {
               </div>
 
               {/* CTA */}
-              <div
-                className="block w-full py-3.5 rounded-xl text-center font-black text-base cursor-not-allowed opacity-50 select-none"
+              <a
+                href="https://discord.gg/ANEuA5u8UX"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-3.5 rounded-xl text-center font-black text-base transition-transform hover:scale-[1.01] focus:scale-[1.01]"
                 style={{
-                  backgroundColor: "#555",
-                  color: "#000",
+                  backgroundColor: "#5865F2", // Discord Blurple
+                  color: "#fff",
                 }}
               >
-                Ausverkauft
-              </div>
+                Discord
+              </a>
             </motion.div>
           ))}
         </div>
