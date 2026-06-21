@@ -99,7 +99,7 @@ export default function Pricing() {
               {/* Diagonal Hinweis-Banner (Discord blue) */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
                 <div
-                  className="absolute top-[28px] right-[-58px] w-[320px] text-center py-2.5 text-[12px] md:text-[13px] font-bold tracking-wide uppercase text-white rotate-45 shadow-lg ring-1 ring-white/10"
+                  className="absolute top-[40px] right-[-84px] w-[300px] text-center py-2.5 text-[12px] md:text-[13px] font-bold tracking-wide uppercase text-white rotate-45 shadow-lg ring-1 ring-white/10"
                   style={{
                     background: "linear-gradient(90deg, #4752C4, #5865F2)",
                     boxShadow: "0 0 18px rgba(88,101,242,0.6), 0 2px 8px rgba(0,0,0,0.5)",
