@@ -50,7 +50,7 @@ export default function Pricing() {
             className="text-4xl md:text-5xl font-black uppercase mt-3 text-white"
             style={{ fontFamily: "Rajdhani, sans-serif" }}
           >
-            Erreiche <span className="text-[#6EE800]">dein nächstes Level</span>
+            Coaching <span className="text-[#6EE800]">auf Augenhöhe</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-lg mx-auto">
             Jederzeit kündbar — kein Commitment. Plätze limitiert.
