@@ -158,11 +158,7 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              {/* Verfügbare Plätze */}
-              <div className="flex items-center justify-between text-xs text-gray-400 mb-4">
-                <span>Verfügbare Plätze</span>
-                <span className="font-bold text-red-400">0 / 10</span>
-              </div>
+              {/* Verfügbare Plätze entfernt */}
 
               {/* CTA */}
               <a
