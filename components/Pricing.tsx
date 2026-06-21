@@ -96,14 +96,15 @@ export default function Pricing() {
                 style={{ background: `radial-gradient(circle at top right, ${tier.color}, transparent 70%)` }}
               />
 
-              {/* Diagonal AUSVERKAUFT Banner (now Discord blue) */}
+              {/* Diagonal Hinweis-Banner (Discord blue) */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
                 <div
-                  className="absolute top-[32px] right-[-42px] w-[260px] text-center py-2 text-xs font-black tracking-widest text-white rotate-45 shadow-lg"
+                  className="absolute top-[28px] right-[-58px] w-[320px] text-center py-2.5 text-[12px] md:text-[13px] font-bold tracking-wide uppercase text-white rotate-45 shadow-lg ring-1 ring-white/10"
                   style={{
                     background: "linear-gradient(90deg, #4752C4, #5865F2)",
                     boxShadow: "0 0 18px rgba(88,101,242,0.6), 0 2px 8px rgba(0,0,0,0.5)",
                     textShadow: "0 1px 4px rgba(0,0,0,0.4)",
+                    fontFamily: "Rajdhani, sans-serif",
                   }}
                 >
                   Verfügbarkeit auf Anfrage
